@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class Controlador2 {
 
@@ -18,5 +20,12 @@ public class Controlador2 {
 
         per.setAge(edadDoble);
         return per;
+    }
+
+
+    //http://localhost:8080/controlador2/getCiudades
+    @GetMapping(value = "/controlador2/getCiudades")
+    public List<City> getCity(){
+        return personService.getCities();
     }
 }
