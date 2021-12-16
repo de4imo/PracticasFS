@@ -1,13 +1,15 @@
 package _SpringBootInyeccionDependencias;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Service lo comento porque ahora se utiliza @Beans en Application, apartado 2
+//@Service                                                          //lo comento porque ahora para compartir esta clase se utiliza @Bean en Application, (apartado 2 del ejercicio)
 public class PersonServiceImpl implements PersonService{
 
-    Person persona = new Person();
+    Person persona;
     List<City> cities;
 
     public void setPerson(Person per){persona = per;}

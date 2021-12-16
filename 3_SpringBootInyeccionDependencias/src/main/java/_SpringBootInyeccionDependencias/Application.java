@@ -1,5 +1,6 @@
 package _SpringBootInyeccionDependencias;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -27,4 +28,27 @@ public class Application {
 		p.setCities(listaCiudades);
 		return p;
 	}
+
+
+	//Parece que es lo mismo Bean(name = "bean1")  que poner el @Qualifier y el @Bean
+	@Bean(name = "bean1")
+	Person getPerson1(){
+		Person p = new Person("Pepe", "Caceres", 22);
+		return p;
+	}
+
+
+	@Qualifier("bean2")
+	@Bean
+	Person getPerson2(){
+		Person p =  new Person("Luisa", "Burgos", 33);
+		return p;
+	}
+	@Qualifier("bean3")
+	@Bean
+	Person getPerson3(){
+		Person p = new Person("Pedro", "Avila", 44);
+		return p;
+	}
+
 }
