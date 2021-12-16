@@ -37,7 +37,6 @@ public class Application {
 		return p;
 	}
 
-
 	@Qualifier("bean2")
 	@Bean
 	Person getPerson2(){

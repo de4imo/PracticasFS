@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @RequiredArgsConstructor
 @AllArgsConstructor
-
-//@Component
+//@Component         //lo comento porque ahora para compartir esta clase se utiliza @Bean en Application, (apartado 2 del ejercicio)
 public class Person {
     private String name;
     private String city;
