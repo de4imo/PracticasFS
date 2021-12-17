@@ -10,11 +10,9 @@ public class ServiceCRUD implements  InterfCRUD{
     List<Person> personList;
 
     public List<Person> getPersonList() {return personList;}
+    private Integer lastID = 999;
 
     public void setPersonList(List<Person> personList) {this.personList = personList;}
-
-    private Integer lastID = 999;
-    //public void addPersona(Person pers){this.personList.add(pers);}
 
     public Person getPersonByID(int ID){
          for(int i =0; i<personList.size(); i++){
@@ -24,29 +22,16 @@ public class ServiceCRUD implements  InterfCRUD{
         }
         return null;
     }
-    /*public List<Person> getPersonByID(Integer ID){
-        List<Person> newListaP = personList.stream().filter(p -> p.getID() == ID).collect(Collectors.toList());
-
-       /* for(int i =0; i<personList.size(); i++){
-            if(personList.get(i).getID() == ID){
-                return personList.get(i);
-            }
-        }
-        return newListaP;
-    }*/
 
     public List<Person> getPersonsByName(String name){
-        List<Person> newListaP = personList.stream().filter(p -> p.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
-
-
-        return newListaP;
+        return personList.stream().filter(p -> p.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
 
-    public void setLastID(Integer ID){
+    public void setLastID(int ID){
         this.lastID = ID;
     }
 
-    public Integer getLastID(){
+    public int getLastID(){
         return this.lastID;
     }
 }

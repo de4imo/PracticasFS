@@ -11,15 +11,13 @@ public class ControllerDELETE {
     @Autowired
     ServiceCRUD serviceCRUD;
 
-
-
     @RequestMapping(value = "/persona/{id}", method = DELETE)
     public void deleteByID(@PathVariable int id){
-        Person personaBuscada = serviceCRUD.getPersonByID(id);
+        Person pers = serviceCRUD.getPersonByID(id);
 
-        if (personaBuscada != null) {
-            String name = personaBuscada.getName();
-            serviceCRUD.getPersonList().remove(personaBuscada);
+        if (pers != null) {
+            String name = pers.getName();
+            serviceCRUD.getPersonList().remove(pers);
             System.out.println(name + " ha sido eliminado correctamente.");
         }else{
             System.out.println("No existe persona con ID = " + id);
