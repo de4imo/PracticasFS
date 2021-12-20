@@ -1,0 +1,5 @@
+server.port = 8081
+valor1 = valor de valor1
+valor2 = valor de valor2
+
+spring.profiles.active = p2
