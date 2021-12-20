@@ -2,14 +2,16 @@ package com.Practicas._SpringBoot_Properties;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+@PropertySource("classpath:applicProperties")
 @Component
-@PropertySource("classpath:application.properties")
-@ConfigurationProperties
+//@ConfigurationProperties
 @Getter
 @Setter
 public class AllProperties {
@@ -21,4 +23,5 @@ public class AllProperties {
 
     @Value("${VAR_SISTEMA: valor defecto}")
     private String var3;
+
 }
