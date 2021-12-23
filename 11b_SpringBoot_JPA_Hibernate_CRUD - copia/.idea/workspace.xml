@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2a34e562-1115-4b9a-985f-1702d936c8f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../11_SpringBoot_JPA_Hibernate_CRUD_Buenas_practicas/src/main/java/com/practicas/persona/domain/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../11_SpringBoot_JPA_Hibernate_CRUD_Buenas_practicas/src/main/java/com/practicas/persona/infrastructure/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1_ProyectFichTexto" beforeDir="false" afterPath="$PROJECT_DIR$/../1_ProyectFichTexto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3_SpringBootInyeccionDependencias/src/main/java/_SpringBootInyeccionDependencias/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../3_SpringBootInyeccionDependencias/src/main/java/_SpringBootInyeccionDependencias/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3_SpringBootInyeccionDependencias/src/main/java/_SpringBootInyeccionDependencias/Controlador1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../3_SpringBootInyeccionDependencias/src/main/java/_SpringBootInyeccionDependencias/Controlador1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5_SpringBoot_CRUD/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../5_SpringBoot_CRUD/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5_SpringBoot_CRUD/src/main/java/com/Practicas/_SpringBoot_CRUD/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../5_SpringBoot_CRUD/src/main/java/com/Practicas/_SpringBoot_CRUD/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5_SpringBoot_CRUD/src/main/java/com/Practicas/_SpringBoot_CRUD/ControllerDELETE.java" beforeDir="false" afterPath="$PROJECT_DIR$/../5_SpringBoot_CRUD/src/main/java/com/Practicas/_SpringBoot_CRUD/ControllerDELETE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5_SpringBoot_CRUD/src/main/java/com/Practicas/_SpringBoot_CRUD/ServiceCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../5_SpringBoot_CRUD/src/main/java/com/Practicas/_SpringBoot_CRUD/ServiceCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7_SpringBoot_Properties/src/main/java/com/Practicas/_SpringBoot_Properties/AllProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../7_SpringBoot_Properties/src/main/java/com/Practicas/_SpringBoot_Properties/AllProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7_SpringBoot_Properties/src/main/java/com/Practicas/_SpringBoot_Properties/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../7_SpringBoot_Properties/src/main/java/com/Practicas/_SpringBoot_Properties/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7_SpringBoot_Properties/src/main/resources/aplication" beforeDir="false" afterPath="$PROJECT_DIR$/../7_SpringBoot_Properties/src/main/resources/aplication" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../8_SpringBoot_Properties_BS4_1Perfiles/src/main/java/com/Practicas/_SpringBoot_Properties_BS4_1Perfiles/ControllerParametros.java" beforeDir="false" afterPath="$PROJECT_DIR$/../8_SpringBoot_Properties_BS4_1Perfiles/src/main/java/com/Practicas/_SpringBoot_Properties_BS4_1Perfiles/ControllerParametros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../9_SpringBoot_BS5.Logging/src/main/java/com/Practicas/_SpringBoot_BS5/Logging/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../9_SpringBoot_BS5.Logging/src/main/java/com/Practicas/_SpringBoot_BS5/Logging/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../9_SpringBoot_BS5.Logging/src/main/resources/logback-spring" beforeDir="false" afterPath="$PROJECT_DIR$/../9_SpringBoot_BS5.Logging/src/main/resources/logback-spring" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="22bPpoo9U8dDdPTUMKSeHz3ZBH4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../11b_SpringBoot_JPA_Hibernate_CRUD" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.Application" />
+      <module name="11b_SpringBoot_JPA_Hibernate_CRUD - copia" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a34e562-1115-4b9a-985f-1702d936c8f8" name="Changes" comment="" />
+      <created>1640103505896</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640103505896</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
