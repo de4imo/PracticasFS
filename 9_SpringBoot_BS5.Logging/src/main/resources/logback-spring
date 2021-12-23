@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <configuration>
-    <!-- Ya no nos sirve base.xml porque queremos separar consola y fichero seg&uacute;n el perfil -->
-    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-
-    <!-- Este filtro se aplica a todos los perfiles -->
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
     <logger name="org.springframework" level="INFO"/>
 
-    <springProfile name="<b>development</b>">
-        <!-- El perfil "development" define una salida por terminal llamada "CONSOLE" -->
-        <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
-        <!-- Todos los mensajes ser&aacute;n enviados a la salida llamada "CONSOLE".
-        El filtro por defecto establece un nivel mínimo de "DEBUG". -->
-        <root level="DEBUG">
-            <appender-ref ref="CONSOLE" />
-        </root>
-    </springProfile>
 
-    <springProfile name="<b>production</b>">
-        <!-- El perfil "production" define una salida a fichero llamada "FILE".
-        La ruta se indica en logging.file o logging.path; si no, se guardar&aacute; en /tmp/spring.log -->
-        <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-{java.io.tmpdir:-/tmp}}/}spring.log}"/>
-        <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
-        <!-- Todos los mensajes se enviar&aacute;n a la salida llamada "FILE".
-        El filtro por defecto establece un nivel mínimo de "INFO". -->
-        <root level="INFO">
-            <appender-ref ref="FILE" />
-        </root>
-    </springProfile>
 </configuration>

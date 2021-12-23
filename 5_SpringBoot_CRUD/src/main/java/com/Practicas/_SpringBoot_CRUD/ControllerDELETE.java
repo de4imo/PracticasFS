@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
-import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @RestController
 public class ControllerDELETE {
@@ -23,5 +22,4 @@ public class ControllerDELETE {
             System.out.println("No existe persona con ID = " + id);
         }
     }
-
 }

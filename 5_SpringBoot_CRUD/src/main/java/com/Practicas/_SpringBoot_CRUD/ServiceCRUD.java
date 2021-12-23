@@ -1,22 +1,23 @@
 package com.Practicas._SpringBoot_CRUD;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class ServiceCRUD implements  InterfCRUD{
-    List<Person> personList;
+    List<Person> personList = new ArrayList<>();
 
     public List<Person> getPersonList() {return personList;}
     private Integer lastID = 999;
 
     public void setPersonList(List<Person> personList) {this.personList = personList;}
 
-    public Person getPersonByID(int ID){
+    public Person getPersonByID(int id){
          for(int i =0; i<personList.size(); i++){
-            if(personList.get(i).getId() == ID){
+            if(personList.get(i).getId() == id){
                 return personList.get(i);
             }
         }
@@ -33,5 +34,10 @@ public class ServiceCRUD implements  InterfCRUD{
 
     public int getLastID(){
         return this.lastID;
+    }
+
+    //completar
+    public boolean isValid(String id){
+        return personList.contains(id);
     }
 }

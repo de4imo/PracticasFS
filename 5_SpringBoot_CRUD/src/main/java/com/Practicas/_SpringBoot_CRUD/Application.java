@@ -13,11 +13,5 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
-	ServiceCRUD getServiceCRUD(){
-		ServiceCRUD serviceCRUD = new ServiceCRUD();
-		serviceCRUD.setPersonList(new ArrayList<>());
 
-		return  serviceCRUD;
-	}
 }

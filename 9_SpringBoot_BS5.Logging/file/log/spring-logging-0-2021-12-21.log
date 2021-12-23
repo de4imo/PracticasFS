@@ -1,0 +1,38 @@
+2021-12-21 16:48:16.013  INFO 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Starting Application using Java 17.0.1 on L2111018 with PID 10064 (C:\Users\daniel.delriomontes\IdeaProjects\9_SpringBoot_BS5.Logging\target\classes started by daniel.delriomontes in C:\Users\daniel.delriomontes\IdeaProjects\9_SpringBoot_BS5.Logging)
+2021-12-21 16:48:16.013 DEBUG 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Running with Spring Boot v2.6.1, Spring v5.3.13
+2021-12-21 16:48:16.013  INFO 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : No active profile set, falling back to default profiles: default
+2021-12-21 16:48:16.832  INFO 10064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 16:48:16.832  INFO 10064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-21 16:48:16.832  INFO 10064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 16:48:16.916  INFO 10064 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-21 16:48:16.916  INFO 10064 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 846 ms
+2021-12-21 16:48:17.303  INFO 10064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-21 16:48:17.303  INFO 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Started Application in 1.69 seconds (JVM running for 1.977)
+2021-12-21 16:48:17.318 TRACE 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.trace
+2021-12-21 16:48:17.318 DEBUG 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.debug
+2021-12-21 16:48:17.318  INFO 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.info
+2021-12-21 16:48:17.318  WARN 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.warn
+2021-12-21 16:48:17.318 ERROR 10064 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.error
+2021-12-21 16:48:46.519  INFO 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Starting Application using Java 17.0.1 on L2111018 with PID 10084 (C:\Users\daniel.delriomontes\IdeaProjects\9_SpringBoot_BS5.Logging\target\classes started by daniel.delriomontes in C:\Users\daniel.delriomontes\IdeaProjects\9_SpringBoot_BS5.Logging)
+2021-12-21 16:48:46.521 DEBUG 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Running with Spring Boot v2.6.1, Spring v5.3.13
+2021-12-21 16:48:46.521  INFO 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : No active profile set, falling back to default profiles: default
+2021-12-21 16:48:47.372  INFO 10084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 16:48:47.372  INFO 10084 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-21 16:48:47.372  INFO 10084 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 16:48:47.435  INFO 10084 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-21 16:48:47.435  INFO 10084 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 857 ms
+2021-12-21 16:48:47.735  INFO 10084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-21 16:48:47.751  INFO 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Started Application in 1.65 seconds (JVM running for 1.97)
+2021-12-21 16:48:47.751 TRACE 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.trace
+2021-12-21 16:48:47.751 DEBUG 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.debug
+2021-12-21 16:48:47.751  INFO 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.info
+2021-12-21 16:48:47.751  WARN 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.warn
+2021-12-21 16:48:47.751 ERROR 10084 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.error
+2021-12-21 16:48:54.563  INFO 10084 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-21 16:48:54.564  INFO 10084 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-21 16:48:54.564  INFO 10084 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-12-21 16:48:54.582 TRACE 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.trace
+2021-12-21 16:48:54.582 DEBUG 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.debug
+2021-12-21 16:48:54.583  INFO 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.info
+2021-12-21 16:48:54.583  WARN 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.warn
+2021-12-21 16:48:54.583 ERROR 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.error

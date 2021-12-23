@@ -21,7 +21,7 @@ public class Controlador1 {
         personService.setPerson(new Person(name, city, age));
     }
 
-    
+
     @PostMapping("/controlador1/addCiudad")
     @ResponseBody
     public void addOneCity(@RequestBody City city){

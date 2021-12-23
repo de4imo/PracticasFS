@@ -1,0 +1,31 @@
+2021-12-21 16:48:56.084 DEBUG 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.debug
+2021-12-21 16:48:56.085  INFO 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.info
+2021-12-21 16:48:56.086  WARN 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.warn
+2021-12-21 16:48:56.086 ERROR 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.error
+2021-12-21 16:48:56.086 TRACE 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.trace
+2021-12-21 16:48:56.096 DEBUG 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.debug
+2021-12-21 16:48:56.096  INFO 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.info
+2021-12-21 16:48:56.096  WARN 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.warn
+2021-12-21 16:48:56.096 ERROR 10084 --- [http-nio-8080-exec-10] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.error
+2021-12-21 16:48:56.246 TRACE 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.trace
+2021-12-21 16:48:56.246 DEBUG 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.debug
+2021-12-21 16:48:56.246  INFO 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.info
+2021-12-21 16:48:56.246  WARN 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.warn
+2021-12-21 16:48:56.246 ERROR 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.error
+2021-12-21 16:48:56.246 TRACE 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.trace
+2021-12-21 16:48:56.246 DEBUG 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.debug
+2021-12-21 16:48:56.246  INFO 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.info
+2021-12-21 16:48:56.246  WARN 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.warn
+2021-12-21 16:48:56.246 ERROR 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.error
+2021-12-21 16:48:56.246 TRACE 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.trace
+2021-12-21 16:48:56.246 DEBUG 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.debug
+2021-12-21 16:48:56.246  INFO 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.info
+2021-12-21 16:48:56.246  WARN 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.warn
+2021-12-21 16:48:56.246 ERROR 10084 --- [http-nio-8080-exec-1] c.P._SpringBoot_BS5.Logging.Controller   : Esto es un log.error
+2021-12-21 16:51:14.312  INFO 6864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-21 16:51:14.321  INFO 6864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-21 16:51:14.321  INFO 6864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 16:51:14.383  INFO 6864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-21 16:51:14.383  INFO 6864 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 815 ms
+2021-12-21 16:51:14.684  INFO 6864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-21 16:51:14.684 ERROR 6864 --- [main] c.P._SpringBoot_BS5.Logging.Application  : Esto es un log.error

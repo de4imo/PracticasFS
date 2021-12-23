@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-@EnableConfigurationProperties
 @RestController
 public class ControllerParametros {
 
