@@ -1,12 +1,21 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 
-//@ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+import java.util.Date;
+
+@Getter
 public class UnprocesableException extends RuntimeException {
+
+    @Autowired
+    CustomError customError ;//= new CustomError();
+
     public UnprocesableException(String message) {
-        super(message);
+
+        customError = new CustomError();
+        customError.setTimestamp(new Date());
+        customError.setHttpCode(422);
+        customError.setMensaje(message);
     }
 }

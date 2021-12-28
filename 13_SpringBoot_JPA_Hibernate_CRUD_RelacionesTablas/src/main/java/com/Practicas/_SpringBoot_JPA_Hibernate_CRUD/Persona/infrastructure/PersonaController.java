@@ -1,17 +1,16 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure.controllers;
+package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure;
 
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.CustomError;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.NotFoundException;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.CustomError;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.NotFoundException;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.PersonaServiceInterface;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.UnprocesableException;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure.controllers.dto.input.PersonaDTOinput;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure.controllers.dto.output.PersonaDTOoutput;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.UnprocesableException;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.input.PersonaDTOinput;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.output.PersonaDTOoutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.beans.ExceptionListener;
 import java.util.List;
 
 @RestController
@@ -22,17 +21,17 @@ public class PersonaController {
 
 
     //GET
-    @GetMapping(value ="/getbyid/{id}")
-    public PersonaDTOoutput getPersonById(@PathVariable long id) throws Exception {
+    @GetMapping(value ="/getpersonbyid/{id}")
+    public PersonaDTOoutput getPersonById(@PathVariable String id) throws Exception {
         return personaServiceInterface.getPersonById(id);
     }
 
-    @GetMapping(value ="/getbyname/{name}")
+    @GetMapping(value ="/getpersonbyname/{name}")
     public List<PersonaDTOoutput> getPersonByName(@PathVariable String name) throws Exception {
         return personaServiceInterface.getPersonsByName(name);
     }
 
-    @GetMapping(value ="/getall")
+    @GetMapping(value ="/getallpersons")
     public List<PersonaDTOoutput> getAllPersons() throws Exception {
         return personaServiceInterface.getAllPersons();
     }
@@ -44,8 +43,8 @@ public class PersonaController {
     }
 
     //PUT
-    @PutMapping("/update/id/{id}")
-    public ResponseEntity<?> updatePersona(@RequestBody PersonaDTOinput pers, @PathVariable("id") Integer id) throws Exception {
+    @PutMapping("/updateperson/{id}")
+    public ResponseEntity<?> updatePersona(@RequestBody PersonaDTOinput pers, @PathVariable("id") String id) throws Exception {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(personaServiceInterface.updatePersona(pers, id));
         } catch (Exception e) {
@@ -55,8 +54,8 @@ public class PersonaController {
     }
 
     //DELETE
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deletePersona(@PathVariable("id") long id) throws Exception {
+    @DeleteMapping("/deleteperson/{id}")
+    public ResponseEntity<?> deletePersona(@PathVariable("id") String id) throws Exception {
         try {
             personaServiceInterface.deletePersona(id);
             return ResponseEntity.status(HttpStatus.OK).body("Persona borrada con exito");

@@ -1,4 +1,4 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure.controllers.dto.input;
+package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.input;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.sun.istack.NotNull;
@@ -33,7 +33,7 @@ public class PersonaDTOinput {
 
     private Date termination_date;
 
-    public Persona toEntity(PersonaDTOinput personaDTOinput){
+    /*public Persona toEntity(PersonaDTOinput personaDTOinput){
         Persona persona = new Persona();
 
         persona.setPassword(personaDTOinput.getPassword());
@@ -49,5 +49,24 @@ public class PersonaDTOinput {
         persona.setTermination_date(personaDTOinput.getTermination_date());
 
         return persona;
+    }*/
+
+    public Persona toEntity(){
+        Persona persona = new Persona();
+
+        persona.setPassword(password);
+        persona.setUsuario(usuario);
+        persona.setName(name);
+        persona.setSurname(surname);
+        persona.setCompany_email(company_email);
+        persona.setPersonal_email(personal_email);
+        persona.setCity(city);
+        persona.setActive(active);
+        persona.setCreated_date(created_date);
+        persona.setImagen_url(imagen_url);
+        persona.setTermination_date(termination_date);
+
+        return persona;
     }
+
 }

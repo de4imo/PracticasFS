@@ -1,4 +1,4 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication;
+package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common;
 
 import lombok.Getter;
 

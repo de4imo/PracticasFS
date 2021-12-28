@@ -1,6 +1,6 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.domain;
 
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.StringPrefixedSequenceIdGenerator;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +26,7 @@ public class Asignatura {
                     @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "ASIG"),
                     @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
-    String id_asignatura;
+    String id;
 
     //    id_student string [ref: > student.id_student] -- Un estudiante puede tener N asignaturas
     @ManyToOne(cascade = CascadeType.ALL)
@@ -40,7 +40,7 @@ public class Asignatura {
 
     //    asignatura string -- Ejemplo: HTML, Angular, SpringBoot...
     @Column(name = "asignatura")
-    String asignatura;
+    String name;
 
     //    coments string
     @Column(name = "comments")

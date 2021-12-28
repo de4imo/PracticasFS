@@ -67,7 +67,7 @@ public class PersonaController {
         }
     }
 
-    @ResponseBody
+    /*@ResponseBody
     @ExceptionHandler({NotFoundException.class})
     public CustomError handleExceptionNotFound() {
         System.out.println("hola desde el exception handler en CONTROLADORES, método handleExceptionNotFound");
@@ -84,6 +84,6 @@ public class PersonaController {
         CustomError customError = new CustomError();
         customError.setUnprocesableException();
         return customError;
-    }
+    }*/
 
 }

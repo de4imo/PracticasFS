@@ -1,10 +1,7 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication;
+package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common;
 
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure.controllers.dto.output.PersonaDTOoutput;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.util.Date;
 
