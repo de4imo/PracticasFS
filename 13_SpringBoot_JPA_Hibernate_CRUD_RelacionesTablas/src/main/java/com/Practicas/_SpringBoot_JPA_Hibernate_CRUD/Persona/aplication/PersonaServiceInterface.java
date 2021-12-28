@@ -1,4 +1,4 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.interfaces;
+package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.input.PersonaDTOinput;

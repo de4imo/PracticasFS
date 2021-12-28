@@ -1,6 +1,15 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD;
+package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common;
 
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.enhanced.SequenceStyleGenerator;
+import org.hibernate.internal.util.config.ConfigurationHelper;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.type.LongType;
+import org.hibernate.type.Type;
+
+import java.io.Serializable;
+import java.util.Properties;
 
 public class StringPrefixedSequenceIdGenerator extends SequenceStyleGenerator {
 
@@ -17,7 +26,6 @@ public class StringPrefixedSequenceIdGenerator extends SequenceStyleGenerator {
     private String numberFormat;
 
     @Override
-
     public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
 
         return valuePrefix + String.format(numberFormat, super.generate(session, object));

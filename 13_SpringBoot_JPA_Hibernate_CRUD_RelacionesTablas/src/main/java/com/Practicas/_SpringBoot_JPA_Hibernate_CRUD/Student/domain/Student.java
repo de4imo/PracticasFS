@@ -1,8 +1,7 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.StringPrefixedSequenceIdGenerator;
-import lombok.Data;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -50,10 +49,10 @@ public class Student {
     @ManyToOne(fetch = FetchType.LAZY)
     String id_profesor;
 
-    @NotNull
+    /*@NotNull
     enum branch{
         FRONT, BACK, FULLSTACK
-    }
+    }*/
 
     @NotNull
     @Column(name = "branch")

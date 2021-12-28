@@ -62,27 +62,6 @@ public class PersonaController {
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error del servidor");
-
         }
     }
-
-    @ResponseBody
-    @ExceptionHandler({NotFoundException.class})
-    public CustomError handleExceptionNotFound() {
-        System.out.println("hola desde el exception handler en CONTROLADORES, método handleExceptionNotFound");
-        //CustomError customError = new CustomError(HttpStatus.NOT_FOUND);
-        CustomError customError = new CustomError();
-        customError.setNotFoundException();
-        return customError;
-    }
-
-    @ResponseBody
-    @ExceptionHandler({UnprocesableException.class})
-    public CustomError handleUnprocesableException() {
-        System.out.println("hola desde el exception handler en CONTROLADORES, método handleUnprocesableException");
-        CustomError customError = new CustomError();
-        customError.setUnprocesableException();
-        return customError;
-    }
-
 }
