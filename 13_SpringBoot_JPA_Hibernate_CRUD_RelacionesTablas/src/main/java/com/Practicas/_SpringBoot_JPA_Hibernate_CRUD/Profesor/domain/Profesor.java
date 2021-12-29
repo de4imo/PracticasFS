@@ -10,29 +10,29 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-/*@Entity
+@Entity
 @Table(name = "Profesores")
 @Getter
-@Setter*/
+@Setter
 public class Profesor {
-/*
-    //    id_profesor string [pk, increment]
+
     @Id
-    @Column(name = "id_profesor", unique = true)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "profe_seq")
     @GenericGenerator(
-            name = "asignat",
-            strategy = "com.Practicas._SpringBoot_JPA_Hibernate_CRUD.StringPrefixedSequenceIdGenerator",
+            name = "profe_seq",
+            strategy = "com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator",
             parameters = {
                     @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
                     @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "PROF"),
                     @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
+    @Column(name = "ID_Profesor",unique = true)
     String id_profesor;
 
 
     //    id_persona string [ref:- persona.id_persona] -- Relación OneToOne con la tabla persona.
-    @OneToOne
-    @JoinColumn(name = "id_persona")
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "ID_Persona")
     Persona persona;
 
     //    coments string
@@ -44,5 +44,5 @@ public class Profesor {
     @NotNull
     @Column(name = "branch")
     String branch;
-*/
+
 }

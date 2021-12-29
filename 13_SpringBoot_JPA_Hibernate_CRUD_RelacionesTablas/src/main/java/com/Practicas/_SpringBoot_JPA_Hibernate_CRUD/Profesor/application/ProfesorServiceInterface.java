@@ -10,7 +10,7 @@ import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
 import java.util.List;
 
 public interface ProfesorServiceInterface {
-    /*//GET
+    //GET
     ProfesorDTOoutput getProfesorById(String id) throws Exception;
 
     //Con este método evito repetir código
@@ -27,5 +27,5 @@ public interface ProfesorServiceInterface {
     ProfesorDTOoutput updateProfesor(ProfesorDTOinput profesorDTOinput, String id) throws Exception;
 
     //DELETE
-    void deleteProfesor(String id) throws Exception;*/
+    void deleteProfesor(String id) throws Exception;
 }

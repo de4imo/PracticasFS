@@ -13,34 +13,34 @@ import java.util.List;
 @RestController
 public class ProfesorController {
 
-       /* @Autowired
+        @Autowired
         ProfesorServiceInterface profesorServiceInterface;
 
 
         //GET
-        @GetMapping(value = "/getProfesorbyid/{id}")
+        @GetMapping(value = "/getprofesorbyid/{id}")
         public ProfesorDTOoutput getProfesorById (@PathVariable String id) throws Exception {
         return profesorServiceInterface.getProfesorById(id);
     }
 
-        @GetMapping(value = "/getProfesorbyname/{name}")
+        @GetMapping(value = "/getprofesorbyname/{name}")
         public List<ProfesorDTOoutput> getProfesoresByName (@PathVariable String name) throws Exception {
         return profesorServiceInterface.getProfesoresByName(name);
     }
 
-        @GetMapping(value = "/getallProfesors")
+        @GetMapping(value = "/getallprofesors")
         public List<ProfesorDTOoutput> getAllProfesors () throws Exception {
         return profesorServiceInterface.getAllProfesores();
     }
 
         //POST
-        @PostMapping(value = "/addProfesor")
+        @PostMapping(value = "/addprofesor")
         public ProfesorDTOoutput addProfesor (@RequestBody ProfesorDTOinput profesorDTOinput) throws Exception {
         return profesorServiceInterface.addProfesor(profesorDTOinput);
     }
 
         //PUT
-        @PutMapping("/updateProfesor/id/{id}")
+        @PutMapping("/updateprofesor/id/{id}")
         public ResponseEntity<?> updateProfesor (@RequestBody ProfesorDTOinput
         profesorDTOinput, @PathVariable("id") String id) throws Exception {
         try {
@@ -52,7 +52,7 @@ public class ProfesorController {
     }
 
         //DELETE
-        @DeleteMapping("/deleteProfesor/{id}")
+        @DeleteMapping("/deleteprofesor/{id}")
         public ResponseEntity<?> deleteProfesor (@PathVariable("id") String id) throws Exception {
         try {
             profesorServiceInterface.deleteProfesor(id);
@@ -62,6 +62,6 @@ public class ProfesorController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error del servidor.");
 
         }
-    }*/
+    }
 
 }

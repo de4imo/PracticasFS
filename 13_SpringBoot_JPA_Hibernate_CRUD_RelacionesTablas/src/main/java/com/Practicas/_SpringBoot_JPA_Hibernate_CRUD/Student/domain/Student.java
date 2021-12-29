@@ -25,22 +25,20 @@ public class Student {
     branch string [not null] -- Rama principal delestudiante (Front, Back, FullStack)*/
 
     @Id
-   /* @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stud_seq")
     @GenericGenerator(
-            name = "asignat",
-            strategy = "com.Practicas._SpringBoot_JPA_Hibernate_CRUD.StringPrefixedSequenceIdGenerator",
+            name = "stud_seq",
+            strategy = "com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator",
             parameters = {
                     @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
                     @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "STUD"),
                     @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
-            })*/
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "id_student", unique = true)
+            })
+    @Column(name = "ID_Student", unique = true)
     String id_student;
 
     @OneToOne(cascade = {CascadeType.ALL})    //???
-    @JoinColumn(name = "id_persona")
+    @JoinColumn(name = "ID_Persona")
     Persona persona;
 
     @Column(name = "num_hours_week")

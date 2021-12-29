@@ -3,6 +3,7 @@ package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.infrastructure.cont
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.input.StudentDTOinput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutputFull;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.StudentServiceInterface;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutputSimple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,23 +38,23 @@ public class StudentController {
 
 
     @GetMapping(value ="/getstudentbyname/{name}")
-    public List<StudentDTOoutputFull> getStudentByName(@PathVariable String name) throws Exception {
+    public List<StudentDTOoutputSimple> getStudentByName(@PathVariable String name) throws Exception {
         return studentServiceInterface.getStudentsByName(name);
     }
 
-    @GetMapping(value ="/getallStudents")
-    public List<StudentDTOoutputFull> getAllStudents() throws Exception {
+    @GetMapping(value ="/getallstudents")
+    public List<StudentDTOoutputSimple> getAllStudents() throws Exception {
         return studentServiceInterface.getAllStudents();
     }
 
     //POST
-    @PostMapping(value = "/addStudent")
-    public StudentDTOoutputFull addStudent(@RequestBody StudentDTOinput studentDTOinput) throws Exception {
+    @PostMapping(value = "/addstudent")
+    public StudentDTOoutputSimple addStudent(@RequestBody StudentDTOinput studentDTOinput) throws Exception {
         return studentServiceInterface.addStudent(studentDTOinput);
     }
 
     //PUT
-    @PutMapping("/updateStudent/{id}")
+    @PutMapping("/updatestudent/{id}")
     public ResponseEntity<?> updateStudent(@RequestBody StudentDTOinput studentDTOinput, @PathVariable("id") String id) throws Exception {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(studentServiceInterface.updateStudent(studentDTOinput, id));
@@ -64,7 +65,7 @@ public class StudentController {
     }
 
     //DELETE
-    @DeleteMapping("/deleteStudent/{id}")
+    @DeleteMapping("/deletestudent/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable("id") String id) throws Exception {
         try {
             studentServiceInterface.deleteStudent(id);

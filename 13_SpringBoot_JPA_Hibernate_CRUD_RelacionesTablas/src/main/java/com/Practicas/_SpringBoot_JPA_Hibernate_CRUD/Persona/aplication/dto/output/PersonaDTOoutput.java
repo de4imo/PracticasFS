@@ -14,6 +14,8 @@ import java.util.Date;
 @ToString
 public class PersonaDTOoutput {
 
+    private String id_persona;
+
     private String usuario;
 
     private String password;
@@ -37,6 +39,7 @@ public class PersonaDTOoutput {
     private Date termination_date;
 
     public PersonaDTOoutput(Persona persona){
+        this.id_persona = persona.getId();
         this.password = persona.getPassword();
         this.usuario = persona.getUsuario();
         this.name = persona.getName();

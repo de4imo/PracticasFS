@@ -8,6 +8,8 @@ import lombok.Data;
 public class StudentDTOoutputSimple {
     String id_student;
 
+    private String id_persona;
+
     int num_hours_week;
 
     String comments;
@@ -17,6 +19,7 @@ public class StudentDTOoutputSimple {
     String branch;
 
     public StudentDTOoutputSimple(Student student){
+        this.id_persona = student.getPersona().getId();
         this.id_student = student.getId_student();
         this.num_hours_week = student.getNum_hours_week();
         this.comments = student.getComments();
