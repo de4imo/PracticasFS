@@ -21,7 +21,6 @@ public class StudentDTOoutputFull{
     String branch;
 
     public StudentDTOoutputFull(Student student){
-        System.out.println("Hola desde: public StudentDTOoutputFull(Student student){...");
         this.id_student = student.getId_student();
 //        this.persona = student.getPersona();
         this.personaDTOoutput = new PersonaDTOoutput(student.getPersona());

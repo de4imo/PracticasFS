@@ -30,13 +30,13 @@ public class StudentController {
     }*/
 
 
-    @GetMapping(value ="getstudentbyid/{id}")//, params = "outputType")
+    @GetMapping(value ="/getstudentbyid/{id}")//, params = "outputType")
     public Object getStudentById(@PathVariable String id, @RequestParam(value = "outputType", defaultValue = "simple") String typeOfValue) throws Exception {
         return studentServiceInterface.getStudentById(id, typeOfValue);
     }
 
 
-    @GetMapping(value ="/getStudentbyname/{name}")
+    @GetMapping(value ="/getstudentbyname/{name}")
     public List<StudentDTOoutputFull> getStudentByName(@PathVariable String name) throws Exception {
         return studentServiceInterface.getStudentsByName(name);
     }

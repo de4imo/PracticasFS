@@ -20,18 +20,18 @@ public class IStudentService implements StudentServiceInterface{
     StudentRepository studentRepository;
 
     @Override
-    public List<StudentDTOoutputFull> toListDTOoutput(List<Student> students) {
-        List<StudentDTOoutputFull> studentDTOoutputFulls = new ArrayList();
+    public List<StudentDTOoutputSimple> toListDTOoutput(List<Student> students) {
+        List<StudentDTOoutputSimple> studentDTOoutputSimples = new ArrayList();
 
         for(Student s: students){
-            studentDTOoutputFulls.add(new StudentDTOoutputFull(s));}
+            studentDTOoutputSimples.add(new StudentDTOoutputSimple(s));}
 
-        return studentDTOoutputFulls;
+        return studentDTOoutputSimples;
     }
 
 
     //GET
-    @Override
+    @Override       //Habrá otra forma que no sea con Object?
     public Object getStudentById(String id, String type) throws Exception {
         Student student = studentRepository.findById(id).orElseThrow(() -> new NotFoundException("No existe estudiante con id:" + id));
 
@@ -45,7 +45,7 @@ public class IStudentService implements StudentServiceInterface{
     }
 
     @Override
-    public List<StudentDTOoutputFull> getStudentsByName(String name) throws Exception {
+    public List<StudentDTOoutputSimple> getStudentsByName(String name) throws Exception {
 
         if (studentRepository.findByPersona(name).isEmpty()) { throw  new NotFoundException("No hay ningún estudiante con nombre: " + name + ".");}
         List<Student> students = studentRepository.findByPersona(name);
@@ -54,7 +54,7 @@ public class IStudentService implements StudentServiceInterface{
     }
 
     @Override
-    public List<StudentDTOoutputFull> getAllStudents() throws Exception {
+    public List<StudentDTOoutputSimple> getAllStudents() throws Exception {
         List<Student> students = studentRepository.findAll();
         if(students.isEmpty()){ throw new NotFoundException("No hay estudiantes.");}
 
@@ -63,7 +63,7 @@ public class IStudentService implements StudentServiceInterface{
 
     //POST
     @Override
-    public StudentDTOoutputFull addStudent(StudentDTOinput studentDTOinput) throws Exception {
+    public StudentDTOoutputSimple addStudent(StudentDTOinput studentDTOinput) throws Exception {
         if(studentDTOinput == null){throw new UnprocesableException("Estudiante enviado es nulo.");}
         //if(studentDTOinput.getName().length()<6 || pers.getName().length()>10){throw new UnprocesableException("UnprocesableException: Persona enviada tiene un nombre cuya longitud no está entre 6 y 10 caracteres."); }
 
@@ -71,12 +71,12 @@ public class IStudentService implements StudentServiceInterface{
 
         studentRepository.saveAndFlush(student);
 
-        return new StudentDTOoutputFull(student);
+        return new StudentDTOoutputSimple(student);
     }
 
     //PUT
     @Override
-    public StudentDTOoutputFull updateStudent(StudentDTOinput studentDTOinput, String id) throws Exception {
+    public StudentDTOoutputSimple updateStudent(StudentDTOinput studentDTOinput, String id) throws Exception {
         if(studentRepository.findById(id).isEmpty()){throw new NotFoundException("No existe estudiante con id:" + id);}
 //      if(studentDTOinput.getName().length()<6 || studentDTOinput.getName().length()>10){throw new UnprocesableException("UnprocesableException: Persona enviada tiene un nombre cuya longitud no está entre 6 y 10 caracteres.");}
 
@@ -84,7 +84,7 @@ public class IStudentService implements StudentServiceInterface{
         student.setId_student(id);
         studentRepository.saveAndFlush(student);
 
-        return new StudentDTOoutputFull(student);
+        return new StudentDTOoutputSimple(student);
     }
 
     //DELETE

@@ -2,7 +2,9 @@ package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.out
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
+import lombok.Data;
 
+@Data
 public class StudentDTOoutputSimple {
     String id_student;
 
