@@ -1,14 +1,18 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.input;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.PersonaRepositorio;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
+@ToString
 public class PersonaDTOinput {
 
     private String usuario;
@@ -50,6 +54,7 @@ public class PersonaDTOinput {
 
         return persona;
     }*/
+
 
     public Persona toEntity(){
         Persona persona = new Persona();

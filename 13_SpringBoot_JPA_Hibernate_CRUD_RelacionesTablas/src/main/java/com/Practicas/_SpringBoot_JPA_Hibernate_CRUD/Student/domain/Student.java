@@ -1,16 +1,19 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import org.hibernate.annotations.Parameter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "estudiantes")
+@Table(name = "Estudiantes")
 @Getter
 @Setter
 public class Student {
@@ -22,19 +25,21 @@ public class Student {
     branch string [not null] -- Rama principal delestudiante (Front, Back, FullStack)*/
 
     @Id
-    @GeneratedValue
+   /* @GeneratedValue
     @GenericGenerator(
             name = "asignat",
             strategy = "com.Practicas._SpringBoot_JPA_Hibernate_CRUD.StringPrefixedSequenceIdGenerator",
             parameters = {
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "STUD"),
-                    @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
-            })
+                    @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+                    @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "STUD"),
+                    @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
+            })*/
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id_student", unique = true)
     String id_student;
 
-    @OneToOne//(cascade = {CascadeType.ALL})    //???
+    @OneToOne(cascade = {CascadeType.ALL})    //???
     @JoinColumn(name = "id_persona")
     Persona persona;
 
@@ -45,11 +50,12 @@ public class Student {
     @Column(name = "comments")
     String comments;
 
-    @Column(name = "id_profesor")
+   /* @JoinColumn(name = "id_profesor")
     @ManyToOne(fetch = FetchType.LAZY)
-    String id_profesor;
+    Profesor profesor;*/
+    //String id_profesor;
 
-    /*@NotNull
+    /*@NotNull          //???
     enum branch{
         FRONT, BACK, FULLSTACK
     }*/

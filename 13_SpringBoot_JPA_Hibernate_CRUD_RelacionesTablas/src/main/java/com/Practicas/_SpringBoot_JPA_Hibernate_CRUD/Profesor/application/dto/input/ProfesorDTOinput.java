@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProfesorDTOinput {
-    private String id_persona;
+    /*private String id_persona;
 
     private String comments;
 
@@ -19,5 +19,5 @@ public class ProfesorDTOinput {
         profesor.setComments(comments);
         profesor.setBranch(branch);
         return profesor;
-    }
+    }*/
 }

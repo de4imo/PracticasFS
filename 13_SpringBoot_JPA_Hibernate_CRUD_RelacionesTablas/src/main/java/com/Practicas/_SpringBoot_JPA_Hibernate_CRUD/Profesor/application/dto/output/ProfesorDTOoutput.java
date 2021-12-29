@@ -4,7 +4,7 @@ import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
 
 public class ProfesorDTOoutput {
-    private String id_persona;
+   /* private String id_persona;
 
     private String comments;
 
@@ -14,5 +14,5 @@ public class ProfesorDTOoutput {
         this.id_persona = profesor.getPersona().getId();
         this.comments = profesor.getComments();
         this.branch = profesor.getBranch();
-    }
+    }*/
 }

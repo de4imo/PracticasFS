@@ -9,12 +9,14 @@ import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.ProfesorRepo
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.NotFoundException;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.UnprocesableException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class IProfesorService implements ProfesorServiceInterface{
-    @Autowired
+  /*  @Autowired
     ProfesorRepositorio profesorRepositorio;
 
 ////////////////
@@ -82,5 +84,5 @@ public class IProfesorService implements ProfesorServiceInterface{
     public void deleteProfesor(String id) throws Exception {
         if(profesorRepositorio.findById(id).isEmpty()){throw new NotFoundException("No existe profesor con id:" + id);}
         profesorRepositorio.delete(profesorRepositorio.findById(id).get());
-    }
+    }*/
 }

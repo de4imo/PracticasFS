@@ -4,14 +4,15 @@ import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.application.dto.i
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.application.dto.output.AsignaturaDTOoutput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.domain.Asignatura;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.domain.AsignaturaRepository;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.NotFoundException;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.UnprocesableException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class IAsignaturaService implements AsignaturaServiceInterface{
 
     @Autowired

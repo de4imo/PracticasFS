@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class ProfesorController {
 
-        @Autowired
+       /* @Autowired
         ProfesorServiceInterface profesorServiceInterface;
 
 
@@ -62,6 +62,6 @@ public class ProfesorController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error del servidor.");
 
         }
-    }
+    }*/
 
 }

@@ -10,12 +10,12 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "profesores")
+/*@Entity
+@Table(name = "Profesores")
 @Getter
-@Setter
+@Setter*/
 public class Profesor {
-
+/*
     //    id_profesor string [pk, increment]
     @Id
     @Column(name = "id_profesor", unique = true)
@@ -44,5 +44,5 @@ public class Profesor {
     @NotNull
     @Column(name = "branch")
     String branch;
-
+*/
 }

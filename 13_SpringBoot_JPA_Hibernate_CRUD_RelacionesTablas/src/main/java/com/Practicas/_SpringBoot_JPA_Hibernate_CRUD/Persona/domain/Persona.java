@@ -13,7 +13,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "personas")
+@Table(name = "Personas")
 @Getter
 @Setter
 public class Persona {
@@ -21,7 +21,7 @@ public class Persona {
     // @Column(name = "name", length = 128, nullable = false, unique = true)
     @Id
     //@GeneratedValue //AUTO is the default strategy for @GeneratedValue., lo cual ya lo convierte en primary key??
-    @GenericGenerator(
+   /* @GenericGenerator(
             name = "asignat",
             strategy = "com.Practicas._SpringBoot_JPA_Hibernate_CRUD.StringPrefixedSequenceIdGenerator",
             parameters = {
@@ -29,7 +29,9 @@ public class Persona {
                     @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "PERS"),
                     @org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
-    @Column(name = "ID_Persona",unique = true)
+    @Column(name = "ID_Persona",unique = true)*/
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     String id;
 
     @NotNull //@Min(13) @Max(110)

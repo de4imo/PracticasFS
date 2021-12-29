@@ -19,7 +19,6 @@ public class AsignaturaController {
     @Autowired
     AsignaturaServiceInterface asignaturaServiceInterface;
 
-
     //GET
     @GetMapping(value ="/getasignaturabyid/{id}")
     public AsignaturaDTOoutput getAsignaturaById(@PathVariable String id) throws Exception {
