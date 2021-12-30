@@ -39,27 +39,18 @@ public class IPersonaService implements PersonaServiceInterface {
     public PersonaDTOoutput getPersonById(String id, String type) throws Exception {
         Persona persona = personaRepositorio.findById(id).orElseThrow(() -> new NotFoundException("No existe usuario con id:" + id));
 
-        //Si se ha pedido Simple
-        if(type.equalsIgnoreCase("simple")){
-            return new PersonaDTOoutput(persona);
+        if(type.equalsIgnoreCase("simple")){return new PersonaDTOoutput(persona);}
+
+        PersonaDTOoutputEstudiante personaDTOoutputEstudiante = new PersonaDTOoutputEstudiante(persona);
+        PersonaDTOoutputProfesor personaDTOoutputProfesor = new PersonaDTOoutputProfesor(persona);
+        if(type.equalsIgnoreCase("full") && personaDTOoutputEstudiante.getStudentDTOoutput() != null){
+            return personaDTOoutputEstudiante;//, posibleStudent);
+        }
+        if(type.equalsIgnoreCase("full") && personaDTOoutputProfesor.getProfesorDTOoutput() != null){
+            return personaDTOoutputProfesor;//, posibleProfesor);
         }
 
-        //PENDIENTE SI se ha recibido el parametro "full" --> Buscar ID_Persona en Estudiante y en Profesor, y enviar el output correspondiente
-
-        Student posibleStudent = personaRepositorio.getStudent(); //.getPersona();
-        Profesor posibleProfesor = personaRepositorio.getProfesor(); //.getPersona();
-
-
-        if(type.equalsIgnoreCase("full") && posibleStudent.getPersona() == persona){
-            return new PersonaDTOoutputEstudiante(persona, posibleStudent);
-        }
-        if(type.equalsIgnoreCase("full") && posibleProfesor.getPersona() == persona){
-            return new PersonaDTOoutputProfesor(persona, posibleProfesor);
-        }
-
-        //no borrar
-        System.out.println("En IPersonaService - getPersonById. Has hecho un get con full, pero algo ha salido mal");
-        return new PersonaDTOoutput(persona);
+         return new PersonaDTOoutput(persona);
     }
 
 

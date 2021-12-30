@@ -11,14 +11,11 @@ import lombok.*;
 public class PersonaDTOoutputEstudiante extends PersonaDTOoutput{
     private StudentDTOoutput studentDTOoutput;
 
-    public PersonaDTOoutputEstudiante(Persona persona, Student student){
+    public PersonaDTOoutputEstudiante(Persona persona){
         super(persona);
-        this.studentDTOoutput = new StudentDTOoutput(student);
+
+        try{this.studentDTOoutput = new StudentDTOoutput(persona.getStudent());
+        }catch (Exception e){ this.studentDTOoutput = null;}
+
     }
-
-
-    /*public PersonaDTOoutputEstudiante(Persona persona, Student student){
-        super(persona);
-        this.student = student;
-    }*/
 }

@@ -3,6 +3,7 @@ package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.outp
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.application.dto.output.ProfesorDTOoutput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutput;
 import lombok.*;
 
 
@@ -12,9 +13,13 @@ import lombok.*;
 public class PersonaDTOoutputProfesor extends PersonaDTOoutput{
     private ProfesorDTOoutput profesorDTOoutput;
 
-    public PersonaDTOoutputProfesor(Persona persona, Profesor profesor){
+    public PersonaDTOoutputProfesor(Persona persona){//}, Profesor profesor){
         super(persona);
-        this.profesorDTOoutput = new ProfesorDTOoutput(profesor);
+
+        try{ this.profesorDTOoutput = new ProfesorDTOoutput(persona.getProfesor());
+        }catch (Exception e){ this.profesorDTOoutput = null;}
+
+        //this.profesorDTOoutput = new ProfesorDTOoutput(profesor);
     }
 
 

@@ -100,11 +100,19 @@ public class Persona {
     }*/
 
     //Prueba:
-    @OneToOne//(cascade = {CascadeType.ALL})
+    /*@OneToOne//(cascade = {CascadeType.ALL})
     @JoinColumn(name = "ID_Profesor")
     Profesor profesor;
 
     @OneToOne//(cascade = {CascadeType.ALL})
     @JoinColumn(name = "ID_Student")
-    Student student;
+    Student student;*/
+
+    //Prueba:
+
+    @OneToOne(mappedBy = "persona",fetch = FetchType.LAZY)
+    private Profesor profesor;
+
+    @OneToOne(mappedBy = "persona",fetch = FetchType.LAZY)
+    private Student student;
 }
