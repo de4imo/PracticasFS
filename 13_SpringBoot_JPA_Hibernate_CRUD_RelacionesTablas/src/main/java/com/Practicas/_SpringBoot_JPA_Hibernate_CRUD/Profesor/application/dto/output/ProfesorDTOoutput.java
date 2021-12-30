@@ -15,7 +15,7 @@ public class ProfesorDTOoutput {
     private String branch;
 
     public ProfesorDTOoutput(Profesor profesor){
-        this.id_persona = profesor.getPersona().getId();
+        this.id_persona = profesor.getPersonaProf().getId();
         this.id_profesor = profesor.getId_profesor();
         this.comments = profesor.getComments();
         this.branch = profesor.getBranch();

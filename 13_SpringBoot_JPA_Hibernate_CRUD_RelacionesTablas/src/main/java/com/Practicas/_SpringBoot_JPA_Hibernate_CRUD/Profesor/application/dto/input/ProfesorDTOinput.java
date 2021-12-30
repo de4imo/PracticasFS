@@ -19,7 +19,7 @@ public class ProfesorDTOinput {
 
     public Profesor toEntity(){
         Profesor profesor = new Profesor();
-        profesor.setPersona(personaDTOinput.toEntity());
+        profesor.setPersonaProf(personaDTOinput.toEntity());
         profesor.setComments(comments);
         profesor.setBranch(branch);
         return profesor;

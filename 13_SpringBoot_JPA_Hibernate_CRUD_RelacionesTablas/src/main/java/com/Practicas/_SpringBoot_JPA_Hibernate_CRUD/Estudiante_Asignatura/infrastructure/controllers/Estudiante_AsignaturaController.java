@@ -1,8 +1,8 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.infrastructure.controllers;
+package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.infrastructure.controllers;
 
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.application.AsignaturaServiceInterface;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.application.dto.input.AsignaturaDTOinput;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Asignatura.application.dto.output.AsignaturaDTOoutput;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.application.Estudiante_AsignaturaServiceInterface;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.application.dto.input.Estudiante_AsignaturaDTOinput;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.application.dto.output.Estudiante_AsignaturaDTOoutput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.CustomError;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.NotFoundException;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.UnprocesableException;
@@ -14,38 +14,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class AsignaturaController {
+public class Estudiante_AsignaturaController {
 
     @Autowired
-    AsignaturaServiceInterface asignaturaServiceInterface;
+    Estudiante_AsignaturaServiceInterface estudianteAsignaturaServiceInterface;
 
     //GET
     @GetMapping(value ="/getasignaturabyid/{id}")
-    public AsignaturaDTOoutput getAsignaturaById(@PathVariable String id) throws Exception {
-        return asignaturaServiceInterface.getAsignaturaById(id);
+    public Estudiante_AsignaturaDTOoutput getAsignaturaById(@PathVariable String id) throws Exception {
+        return estudianteAsignaturaServiceInterface.getAsignaturaById(id);
     }
 
     @GetMapping(value ="/getasignaturabyname/{name}")
-    public List<AsignaturaDTOoutput> getAsignaturaByName(@PathVariable String name) throws Exception {
-        return asignaturaServiceInterface.getAsignaturaByName(name);
+    public List<Estudiante_AsignaturaDTOoutput> getAsignaturaByName(@PathVariable String name) throws Exception {
+        return estudianteAsignaturaServiceInterface.getAsignaturaByName(name);
     }
 
     @GetMapping(value ="/getallasignaturas")
-    public List<AsignaturaDTOoutput> getAllAsignaturas() throws Exception {
-        return asignaturaServiceInterface.getAllAsignaturas();
+    public List<Estudiante_AsignaturaDTOoutput> getAllAsignaturas() throws Exception {
+        return estudianteAsignaturaServiceInterface.getAllAsignaturas();
     }
 
     //POST
     @PostMapping(value = "/addasignatura")
-    public AsignaturaDTOoutput addAsignatura(@RequestBody AsignaturaDTOinput asignaturaDTOinput) throws Exception {
-        return asignaturaServiceInterface.addAsignatura(asignaturaDTOinput);
+    public Estudiante_AsignaturaDTOoutput addAsignatura(@RequestBody Estudiante_AsignaturaDTOinput estudianteAsignaturaDTOinput) throws Exception {
+        return estudianteAsignaturaServiceInterface.addAsignatura(estudianteAsignaturaDTOinput);
     }
 
     //PUT
     @PutMapping("/updateasignatura/id/{id}")
-    public ResponseEntity<?> updateAsignatura(@RequestBody AsignaturaDTOinput asignaturaDTOinput, @PathVariable("id") String id) throws Exception {
+    public ResponseEntity<?> updateAsignatura(@RequestBody Estudiante_AsignaturaDTOinput estudianteAsignaturaDTOinput, @PathVariable("id") String id) throws Exception {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(asignaturaServiceInterface.updateAsignatura(asignaturaDTOinput, id));
+            return ResponseEntity.status(HttpStatus.OK).body(estudianteAsignaturaServiceInterface.updateAsignatura(estudianteAsignaturaDTOinput, id));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error del servidor");
@@ -56,7 +56,7 @@ public class AsignaturaController {
     @DeleteMapping("/deleteasignatura/{id}")
     public ResponseEntity<?> deleteAsignatura(@PathVariable("id") String id) throws Exception {
         try {
-            asignaturaServiceInterface.deleteAsignatura(id);
+            estudianteAsignaturaServiceInterface.deleteAsignatura(id);
             return ResponseEntity.status(HttpStatus.OK).body("Asignatura borrada con exito.");
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,7 +65,7 @@ public class AsignaturaController {
         }
     }
 
-    @ResponseBody
+    /*@ResponseBody
     @ExceptionHandler({NotFoundException.class})
     public CustomError handleExceptionNotFound() {
         System.out.println("hola desde el exception handler en CONTROLADORES, método handleExceptionNotFound");
@@ -81,6 +81,6 @@ public class AsignaturaController {
         CustomError customError = new CustomError();
         customError.setUnprocesableException();
         return customError;
-    }
+    }*/
 
 }

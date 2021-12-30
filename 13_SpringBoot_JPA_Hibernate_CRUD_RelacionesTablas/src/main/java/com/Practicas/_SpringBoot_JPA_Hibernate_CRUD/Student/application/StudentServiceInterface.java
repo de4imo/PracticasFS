@@ -24,6 +24,8 @@ public interface StudentServiceInterface {
     //PUT
     StudentDTOoutput updateStudent(StudentDTOinput studentDTOinput, String id) throws Exception;
 
+    StudentDTOoutput addAsignaturaToStudent(String id_estud, String id_student_asig) throws Exception;
+
     //DELETE
     void deleteStudent(String id) throws Exception;
 }

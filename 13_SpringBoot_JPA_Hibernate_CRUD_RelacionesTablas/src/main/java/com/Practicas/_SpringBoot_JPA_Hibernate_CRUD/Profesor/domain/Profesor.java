@@ -1,6 +1,7 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator;
 import org.hibernate.annotations.Parameter;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "Profesores")
@@ -27,22 +29,21 @@ public class Profesor {
                     @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
     @Column(name = "ID_Profesor",unique = true)
-    String id_profesor;
+    private String id_profesor;
 
-
-    //    id_persona string [ref:- persona.id_persona] -- Relación OneToOne con la tabla persona.
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "ID_Persona")
-    Persona persona;
+    private Persona personaProf;
 
-    //    coments string
+    @OneToMany(cascade = CascadeType.ALL,  mappedBy = "profesor")
+    //@JoinColumn(name = "ID_Student")  Joincolumn solo se pone en el "dueño de la relación"
+    List<Student> estudiantes;
+
+
     @Column(name = "comments")
-    String comments;
+    private String comments;
 
-
-    //    branch string [not null] -- Materia principal que imparte. Por ejemplo: Front
     @NotNull
     @Column(name = "branch")
-    String branch;
-
+    private String branch;
 }

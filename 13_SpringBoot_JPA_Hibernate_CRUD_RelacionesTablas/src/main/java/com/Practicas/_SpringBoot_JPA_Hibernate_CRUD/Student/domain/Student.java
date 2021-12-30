@@ -1,5 +1,6 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain;
 
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.domain.Estudiante_Asignatura;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator;
@@ -11,19 +12,14 @@ import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Estudiantes")
 @Getter
 @Setter
 public class Student {
-/*  id_student string [pk, increment]
-    id_persona string [ref:- persona.id_persona] -- Relación OneToOne con la tabla persona.
-    num_hours_week int [not null] -- Número de horas semanales del estudiante en formación
-    coments string
-    id_profesor string [ref: > profesor.id_profesor] -- Un estudiante solo puede tener un profesor.
-    branch string [not null] -- Rama principal delestudiante (Front, Back, FullStack)*/
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stud_seq")
     @GenericGenerator(
@@ -35,30 +31,31 @@ public class Student {
                     @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
     @Column(name = "ID_Student", unique = true)
-    String id_student;
+    private String id_student;
 
     @OneToOne(cascade = {CascadeType.ALL})    //???
     @JoinColumn(name = "ID_Persona")
-    Persona persona;
+    private Persona persona;
 
     @Column(name = "num_hours_week")
     @NotNull
-    int num_hours_week;
+    private int num_hours_week;
 
     @Column(name = "comments")
-    String comments;
+    private String comments;
 
-   /* @JoinColumn(name = "id_profesor")
+    @JoinColumn(name = "id_profesor")
     @ManyToOne(fetch = FetchType.LAZY)
-    Profesor profesor;*/
-    //String id_profesor;
+    private Profesor profesor;
 
-    /*@NotNull          //???
-    enum branch{
-        FRONT, BACK, FULLSTACK
-    }*/
+    //@OneToMany(orphanRemoval = true, mappedBy = "estudiante", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(orphanRemoval = true,  mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "estudiante")    Solo se pone Joincolumn en el "dueño" de la relación
+    private List<Estudiante_Asignatura> asignaturas = new ArrayList<>();
 
     @NotNull
     @Column(name = "branch")
-    String branch;
+    private String branch;
+
+
 }

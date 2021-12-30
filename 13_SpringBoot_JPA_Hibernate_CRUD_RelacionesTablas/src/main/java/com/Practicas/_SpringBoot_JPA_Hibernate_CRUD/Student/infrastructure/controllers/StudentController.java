@@ -63,6 +63,13 @@ public class StudentController {
         }
     }
 
+
+    //añadir asignatura a estudiante:
+    @PutMapping("/updatestudent/{idstudent}/addasignatura/{idasignatura}")
+    public StudentDTOoutput addAsignaturaToStudent(@PathVariable("idstudent") String idStudent, @PathVariable("idasignatura") String idAsignatura) throws Exception{
+        return studentServiceInterface.addAsignaturaToStudent(idStudent, idAsignatura);
+    }
+
     //DELETE
     @DeleteMapping("/deletestudent/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable("id") String id) throws Exception {

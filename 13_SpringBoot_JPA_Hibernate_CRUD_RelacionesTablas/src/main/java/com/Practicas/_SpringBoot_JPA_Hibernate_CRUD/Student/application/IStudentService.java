@@ -1,5 +1,8 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application;
 
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.application.dto.output.Estudiante_AsignaturaDTOoutput;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.domain.Estudiante_Asignatura;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.domain.Estudiante_AsignaturaRepository;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.input.StudentDTOinput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutputFull;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutput;
@@ -19,12 +22,16 @@ public class IStudentService implements StudentServiceInterface{
     @Autowired
     StudentRepository studentRepository;
 
+    @Autowired
+    Estudiante_AsignaturaRepository estudianteAsignaturaRepository;
+
     @Override
     public List<StudentDTOoutput> toListDTOoutput(List<Student> students) {
         List<StudentDTOoutput> studentDTOoutputs = new ArrayList();
 
         for(Student s: students){
-            studentDTOoutputs.add(new StudentDTOoutput(s));}
+            studentDTOoutputs.add(new StudentDTOoutput(s));
+        }
 
         return studentDTOoutputs;
     }
@@ -86,6 +93,28 @@ public class IStudentService implements StudentServiceInterface{
 
         return new StudentDTOoutput(student);
     }
+
+
+    @Override
+    public StudentDTOoutput addAsignaturaToStudent(String id_estud, String id_student_asig) throws Exception {
+        if(studentRepository.findById(id_estud).isEmpty()){throw new NotFoundException("Estudiante con ID: " + id_estud + " no existe.");}
+        if(estudianteAsignaturaRepository.findById(id_student_asig).isEmpty()){ throw new NotFoundException("Estudiante_Asignatura con ID: " + id_student_asig + " no existe.");}
+
+        Student student = studentRepository.findById(id_estud).get();
+        Estudiante_Asignatura estudiante_asignatura = estudianteAsignaturaRepository.findById(id_student_asig).get();
+
+        student.getAsignaturas().add(estudiante_asignatura);
+
+        estudiante_asignatura.setStudent(student);
+
+        estudianteAsignaturaRepository.saveAndFlush(estudiante_asignatura);
+
+        studentRepository.saveAndFlush(student);
+        //estudianteAsignaturaRepository.saveAndFlush(estudiante_asignatura);
+
+        return new StudentDTOoutput(student);
+    }
+
 
     //DELETE
     @Override

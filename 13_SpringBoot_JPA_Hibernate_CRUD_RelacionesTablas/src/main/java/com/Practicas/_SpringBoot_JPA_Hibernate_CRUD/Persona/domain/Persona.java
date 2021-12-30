@@ -21,9 +21,7 @@ import java.util.Date;
 @Setter
 public class Persona {
 
-    // @Column(name = "name", length = 128, nullable = false, unique = true)
     @Id
-    //@GeneratedValue //AUTO is the default strategy for @GeneratedValue., lo cual ya lo convierte en primary key??
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "perso_seq")
     @GenericGenerator(
             name = "perso_seq",
@@ -34,38 +32,36 @@ public class Persona {
                     @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
             })
     @Column(name = "ID_Persona",unique = true)
-    //@GeneratedValue(generator = "uuid")
-    //@GenericGenerator(name = "uuid", strategy = "uuid2")
-    String id;
+    private String id;
 
-    @NotNull //@Min(13) @Max(110)
+    @NotNull
     @Column(name="nombre_de_usuario")
     @Size(min = 6, max = 10)
-    String usuario;
+    private String usuario;
 
     @Column(name="password")
     @NotNull
-    String password;
+    private String password;
 
     @Column(name="name")
     @NotNull
-    String name;
+    private String name;
 
     @Column(name="surname")
     @NotNull
-    String surname;
+    private String surname;
 
     @Column(name="company_email")
     @NotNull
-    String company_email;
+    private String company_email;
 
     @Column(name="personal_email")
     @NotNull
-    String personal_email;
+    private String personal_email;
 
     @Column(name="city")
     @NotNull
-    String city;
+    private String city;
 
     @Column(name="active")
     @NotNull
@@ -73,17 +69,19 @@ public class Persona {
 
     @Column(name="created_date")
     @NotNull
-    Date created_date;
+    private Date created_date;
 
     @Column(name="imagen_url")
-    String imagen_url;
+    private String imagen_url;
 
     @Column(name="termination_date")
-    Date termination_date;
+    private Date termination_date;
 
-    @OneToOne(mappedBy = "persona",fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name  = "personaProf")
     private Profesor profesor;
 
-    @OneToOne(mappedBy = "persona",fetch = FetchType.LAZY)
+    @OneToOne(/*mappedBy = "persona",*/fetch = FetchType.LAZY)
+    @JoinColumn(name  = "personaStud")
     private Student student;
 }

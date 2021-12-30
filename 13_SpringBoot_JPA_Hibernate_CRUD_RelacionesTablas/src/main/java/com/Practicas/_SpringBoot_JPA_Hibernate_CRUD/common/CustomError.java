@@ -16,7 +16,7 @@ public class CustomError /*extends ResponseEntity*/ {
     private String mensaje;
 
 
-    public void setNotFoundException(){
+    /*public void setNotFoundException(){
         timestamp = new Date();
         HttpCode = 404;
         mensaje = "esto es not found exception";
@@ -26,5 +26,5 @@ public class CustomError /*extends ResponseEntity*/ {
         timestamp = new Date();
         HttpCode = 422;
         mensaje = "esto es unpprocesable exception";
-    }
+    }*/
 }
