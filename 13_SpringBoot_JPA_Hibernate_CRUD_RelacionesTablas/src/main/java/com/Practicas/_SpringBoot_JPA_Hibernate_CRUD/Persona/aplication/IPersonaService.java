@@ -21,17 +21,44 @@ public class IPersonaService implements PersonaServiceInterface {
     @Autowired
     PersonaRepositorio personaRepositorio;
 
+    /*Método que solo devuelve un tipo de Output, en función del 'outputType' --> [URL]?outputType=[AQUI O 'full' o 'simple']:
+        * PersonaDTOoutput por defecto ó si la URL--> ?outputType=simple
+        * PersonaDTOoutputEstudiante si la persona es Estudiante & la URL--> ?outputType=full
+        * PersonaDTOoutputProfesor si la persona es Profesor & la URL--> ?outputType=full*/
+    private PersonaDTOoutput getOutputAccordingType(Persona persona, String type){
+
+        if(type.equalsIgnoreCase("simple")){return new PersonaDTOoutput(persona);}
+
+        PersonaDTOoutputEstudiante personaDTOoutputEstudiante = new PersonaDTOoutputEstudiante(persona);
+        PersonaDTOoutputProfesor personaDTOoutputProfesor = new PersonaDTOoutputProfesor(persona);
+
+        if(type.equalsIgnoreCase("full") && personaDTOoutputEstudiante.getStudentDTOoutput() != null){
+            return personaDTOoutputEstudiante;
+        }
+        if(type.equalsIgnoreCase("full") && personaDTOoutputProfesor.getProfesorDTOoutput() != null){
+            return personaDTOoutputProfesor;
+        }
+
+        return new PersonaDTOoutput(persona);
+    }
+
+
+    //Para obtener una lista (tanto si hemos buscado por nombres o queremos la lista completa)
     @Override
-    //Con este método evito repetir código ala hora de generar una lista
-    public List<PersonaDTOoutput> toListDTOoutput(List<Persona> personas){
+    public List<PersonaDTOoutput> toListDTOoutput(List<Persona> personas, String typeOfValue){
         List<PersonaDTOoutput> personasDTO = new ArrayList();
 
         for(Persona p: personas){
-            personasDTO.add(new PersonaDTOoutput(p));
+            if(typeOfValue.equalsIgnoreCase("simple")){
+                personasDTO.add(new PersonaDTOoutput(p));
+            }
+
+            if(typeOfValue.equalsIgnoreCase("full")){
+                personasDTO.add(getOutputAccordingType(p, "full"));
+            }
         }
         return personasDTO;
     }
-
 
 
     //GET
@@ -39,36 +66,25 @@ public class IPersonaService implements PersonaServiceInterface {
     public PersonaDTOoutput getPersonById(String id, String type) throws Exception {
         Persona persona = personaRepositorio.findById(id).orElseThrow(() -> new NotFoundException("No existe usuario con id:" + id));
 
-        if(type.equalsIgnoreCase("simple")){return new PersonaDTOoutput(persona);}
-
-        PersonaDTOoutputEstudiante personaDTOoutputEstudiante = new PersonaDTOoutputEstudiante(persona);
-        PersonaDTOoutputProfesor personaDTOoutputProfesor = new PersonaDTOoutputProfesor(persona);
-        if(type.equalsIgnoreCase("full") && personaDTOoutputEstudiante.getStudentDTOoutput() != null){
-            return personaDTOoutputEstudiante;//, posibleStudent);
-        }
-        if(type.equalsIgnoreCase("full") && personaDTOoutputProfesor.getProfesorDTOoutput() != null){
-            return personaDTOoutputProfesor;//, posibleProfesor);
-        }
-
-         return new PersonaDTOoutput(persona);
+         return getOutputAccordingType(persona, type);
     }
 
 
     @Override
-    public List<PersonaDTOoutput> getPersonsByName(String name) throws Exception {
+    public List<PersonaDTOoutput> getPersonsByName(String name, String typeOfValue) throws Exception {
 
         if (personaRepositorio.findByName(name).isEmpty()) { throw  new NotFoundException("No hay ninguna persona con nombre: " + name + ".");}
         List<Persona> personas = personaRepositorio.findByName(name);
 
-        return toListDTOoutput(personas);
+        return toListDTOoutput(personas, typeOfValue);
     }
 
     @Override
-    public List<PersonaDTOoutput> getAllPersons() throws Exception {
+    public List<PersonaDTOoutput> getAllPersons(String typeOfValue) throws Exception {
         List<Persona> personas = personaRepositorio.findAll();
         if(personas.isEmpty()){ throw new NotFoundException("No hay personas.");}
 
-        return toListDTOoutput(personas);
+        return toListDTOoutput(personas, typeOfValue);
     }
 
 

@@ -9,15 +9,15 @@ import java.util.List;
 public interface PersonaServiceInterface {
     //GET
     //PersonaDTOoutput getPersonById(String id,) throws Exception;
-    Object getPersonById(String id, String type) throws Exception;
+    Object getPersonById(String id, String typeOfValue) throws Exception;
 
 
 
     //Con este método evito repetir código en getPersonsByName y getAllPersons
-    List<PersonaDTOoutput> toListDTOoutput(List<Persona> personas);
+    List<PersonaDTOoutput> toListDTOoutput(List<Persona> personas, String typeOfValue);
 
-    List<PersonaDTOoutput> getPersonsByName(String name) throws Exception;
-    List<PersonaDTOoutput> getAllPersons() throws Exception;
+    List<PersonaDTOoutput> getPersonsByName(String name, String typeOfValue) throws Exception;
+    List<PersonaDTOoutput> getAllPersons(String typeOfValue) throws Exception;
 
     //POST
     PersonaDTOoutput addPerson(PersonaDTOinput pers) throws Exception;

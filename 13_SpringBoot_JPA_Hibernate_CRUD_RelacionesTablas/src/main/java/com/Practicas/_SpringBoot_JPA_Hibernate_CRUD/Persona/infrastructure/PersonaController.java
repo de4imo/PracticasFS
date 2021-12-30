@@ -19,26 +19,19 @@ public class PersonaController {
     @Autowired
     PersonaServiceInterface personaServiceInterface;
 
-
-    //GET
-/*    @GetMapping(value ="/getpersonbyid/{id}")
-    public PersonaDTOoutput getPersonById(@PathVariable String id) throws Exception {
-        return personaServiceInterface.getPersonById(id);
-    }*/
-
     @GetMapping(value ="/getpersonbyid/{id}")
     public Object getPersonById(@PathVariable String id, @RequestParam(value = "outputType", defaultValue = "simple") String typeOfValue) throws Exception {
         return personaServiceInterface.getPersonById(id, typeOfValue);
     }
 
     @GetMapping(value ="/getpersonbyname/{name}")
-    public List<PersonaDTOoutput> getPersonByName(@PathVariable String name) throws Exception {
-        return personaServiceInterface.getPersonsByName(name);
+    public List<PersonaDTOoutput> getPersonByName(@PathVariable String name, @RequestParam(value = "outputType", defaultValue = "simple") String typeOfValue) throws Exception {
+        return personaServiceInterface.getPersonsByName(name, typeOfValue);
     }
 
     @GetMapping(value ="/getallpersons")
-    public List<PersonaDTOoutput> getAllPersons() throws Exception {
-        return personaServiceInterface.getAllPersons();
+    public List<PersonaDTOoutput> getAllPersons(@RequestParam(value = "outputType", defaultValue = "simple") String typeOfValue) throws Exception {
+        return personaServiceInterface.getAllPersons(typeOfValue);
     }
 
     //POST

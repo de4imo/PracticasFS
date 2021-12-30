@@ -81,35 +81,6 @@ public class Persona {
     @Column(name="termination_date")
     Date termination_date;
 
-   /*public PersonaDTOoutput toPersonaOutput (){
-        PersonaDTOoutput personaDTOoutput = new PersonaDTOoutput();
-
-        personaDTOoutput.setPassword(password);
-        personaDTOoutput.setUsuario(usuario);
-        personaDTOoutput.setName(name);
-        personaDTOoutput.setSurname(surname);
-        personaDTOoutput.setCompany_email(company_email);
-        personaDTOoutput.setPersonal_email(personal_email);
-        personaDTOoutput.setCity(city);
-        personaDTOoutput.setActive(active);
-        personaDTOoutput.setCreated_date(created_date);
-        personaDTOoutput.setImagen_url(imagen_url);
-        personaDTOoutput.setTermination_date(termination_date);
-
-        return personaDTOoutput;
-    }*/
-
-    //Prueba:
-    /*@OneToOne//(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "ID_Profesor")
-    Profesor profesor;
-
-    @OneToOne//(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "ID_Student")
-    Student student;*/
-
-    //Prueba:
-
     @OneToOne(mappedBy = "persona",fetch = FetchType.LAZY)
     private Profesor profesor;
 

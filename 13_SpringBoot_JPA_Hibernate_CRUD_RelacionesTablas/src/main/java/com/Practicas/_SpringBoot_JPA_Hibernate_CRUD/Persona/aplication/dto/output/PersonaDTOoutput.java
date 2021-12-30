@@ -14,9 +14,7 @@ import java.util.Date;
 @ToString
 public class PersonaDTOoutput {
 
-    private String id_persona;
-
-    private String usuario;
+    private String id_persona,usuario;
 
     private String password;
 

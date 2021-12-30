@@ -2,8 +2,6 @@ package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.outp
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.application.dto.output.ProfesorDTOoutput;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutput;
 import lombok.*;
 
 
@@ -21,8 +19,4 @@ public class PersonaDTOoutputProfesor extends PersonaDTOoutput{
 
         //this.profesorDTOoutput = new ProfesorDTOoutput(profesor);
     }
-
-
-
-
 }
