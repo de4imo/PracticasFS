@@ -11,6 +11,7 @@ import org.hibernate.type.Type;
 import java.io.Serializable;
 import java.util.Properties;
 
+//Copiado del itinerario, parte "DB1-1 Generación autoincreméntales"
 public class StringPrefixedSequenceIdGenerator extends SequenceStyleGenerator {
 
     public static final String VALUE_PREFIX_PARAMETER = "valuePrefix";
@@ -27,13 +28,10 @@ public class StringPrefixedSequenceIdGenerator extends SequenceStyleGenerator {
 
     @Override
     public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
-
         return valuePrefix + String.format(numberFormat, super.generate(session, object));
-
     }
 
     @Override
-
     public void configure(Type type, Properties params, ServiceRegistry serviceRegistry) {
 
         super.configure(LongType.INSTANCE, params, serviceRegistry);

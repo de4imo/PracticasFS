@@ -1,9 +1,13 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication;
 
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.output.PersonaDTOoutputEstudiante;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.output.PersonaDTOoutputProfesor;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.PersonaRepositorio;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.input.PersonaDTOinput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.output.PersonaDTOoutput;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.NotFoundException;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.UnprocesableException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +36,29 @@ public class IPersonaService implements PersonaServiceInterface {
 
     //GET
     @Override
-    public PersonaDTOoutput getPersonById(String id) throws Exception {
+    public PersonaDTOoutput getPersonById(String id, String type) throws Exception {
         Persona persona = personaRepositorio.findById(id).orElseThrow(() -> new NotFoundException("No existe usuario con id:" + id));
 
+        //Si se ha pedido Simple
+        if(type.equalsIgnoreCase("simple")){
+            return new PersonaDTOoutput(persona);
+        }
+
+        //PENDIENTE SI se ha recibido el parametro "full" --> Buscar ID_Persona en Estudiante y en Profesor, y enviar el output correspondiente
+
+        Student posibleStudent = personaRepositorio.getStudent(); //.getPersona();
+        Profesor posibleProfesor = personaRepositorio.getProfesor(); //.getPersona();
+
+
+        if(type.equalsIgnoreCase("full") && posibleStudent.getPersona() == persona){
+            return new PersonaDTOoutputEstudiante(persona, posibleStudent);
+        }
+        if(type.equalsIgnoreCase("full") && posibleProfesor.getPersona() == persona){
+            return new PersonaDTOoutputProfesor(persona, posibleProfesor);
+        }
+
+        //no borrar
+        System.out.println("En IPersonaService - getPersonById. Has hecho un get con full, pero algo ha salido mal");
         return new PersonaDTOoutput(persona);
     }
 

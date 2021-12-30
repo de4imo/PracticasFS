@@ -21,9 +21,14 @@ public class PersonaController {
 
 
     //GET
-    @GetMapping(value ="/getpersonbyid/{id}")
+/*    @GetMapping(value ="/getpersonbyid/{id}")
     public PersonaDTOoutput getPersonById(@PathVariable String id) throws Exception {
         return personaServiceInterface.getPersonById(id);
+    }*/
+
+    @GetMapping(value ="/getpersonbyid/{id}")
+    public Object getPersonById(@PathVariable String id, @RequestParam(value = "outputType", defaultValue = "simple") String typeOfValue) throws Exception {
+        return personaServiceInterface.getPersonById(id, typeOfValue);
     }
 
     @GetMapping(value ="/getpersonbyname/{name}")

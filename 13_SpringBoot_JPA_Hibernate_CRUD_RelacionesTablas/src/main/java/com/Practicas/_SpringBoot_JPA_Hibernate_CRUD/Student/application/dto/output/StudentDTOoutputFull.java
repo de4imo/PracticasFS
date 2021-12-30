@@ -1,33 +1,18 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.output.PersonaDTOoutput;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class StudentDTOoutputFull{
-    String id_student;
-
-    private String id_persona;
-
-    PersonaDTOoutput personaDTOoutput;
-
-    int num_hours_week;
-
-    String comments;
-
-    //String id_profesor;
-
-    String branch;
+@Getter
+@Setter
+//OUTPUT FULL CON DATOS DE Persona
+public class StudentDTOoutputFull extends StudentDTOoutput{
+    PersonaDTOoutput personaDTOoutput;  //
 
     public StudentDTOoutputFull(Student student){
-        this.id_student = student.getId_student();
-        this.id_persona = student.getPersona().getId();
+        super(student);
         this.personaDTOoutput = new PersonaDTOoutput(student.getPersona());
-        this.num_hours_week = student.getNum_hours_week();
-        this.comments = student.getComments();
-        //this.id_profesor = student.getId_profesor();
-        this.branch = student.getBranch();
     }
 }

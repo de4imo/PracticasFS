@@ -1,9 +1,8 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.infrastructure.controllers;
 
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.input.StudentDTOinput;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutputFull;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.StudentServiceInterface;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutputSimple;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,25 +30,25 @@ public class StudentController {
     }*/
 
 
-    @GetMapping(value ="/getstudentbyid/{id}")//, params = "outputType")
-    public Object getStudentById(@PathVariable String id, @RequestParam(value = "outputType", defaultValue = "simple") String typeOfValue) throws Exception {
+    @GetMapping(value ="/getstudentbyid/{id}")
+    public StudentDTOoutput getStudentById(@PathVariable String id, @RequestParam(value = "outputType", defaultValue = "simple") String typeOfValue) throws Exception {
         return studentServiceInterface.getStudentById(id, typeOfValue);
     }
 
 
     @GetMapping(value ="/getstudentbyname/{name}")
-    public List<StudentDTOoutputSimple> getStudentByName(@PathVariable String name) throws Exception {
+    public List<StudentDTOoutput> getStudentByName(@PathVariable String name) throws Exception {
         return studentServiceInterface.getStudentsByName(name);
     }
 
     @GetMapping(value ="/getallstudents")
-    public List<StudentDTOoutputSimple> getAllStudents() throws Exception {
+    public List<StudentDTOoutput> getAllStudents() throws Exception {
         return studentServiceInterface.getAllStudents();
     }
 
     //POST
     @PostMapping(value = "/addstudent")
-    public StudentDTOoutputSimple addStudent(@RequestBody StudentDTOinput studentDTOinput) throws Exception {
+    public StudentDTOoutput addStudent(@RequestBody StudentDTOinput studentDTOinput) throws Exception {
         return studentServiceInterface.addStudent(studentDTOinput);
     }
 

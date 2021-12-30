@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface PersonaServiceInterface {
     //GET
-    PersonaDTOoutput getPersonById(String id) throws Exception;
+    //PersonaDTOoutput getPersonById(String id,) throws Exception;
+    Object getPersonById(String id, String type) throws Exception;
+
+
 
     //Con este método evito repetir código en getPersonsByName y getAllPersons
     List<PersonaDTOoutput> toListDTOoutput(List<Persona> personas);

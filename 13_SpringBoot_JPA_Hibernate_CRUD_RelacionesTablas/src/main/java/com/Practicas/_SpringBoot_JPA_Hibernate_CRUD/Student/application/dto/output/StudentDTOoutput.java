@@ -1,11 +1,13 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output;
 
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.Persona;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class StudentDTOoutputSimple {
+@Getter
+@Setter
+//OUTPUT SIMPLE SIN DATOS DE Persona
+public class StudentDTOoutput {
     String id_student;
 
     private String id_persona;
@@ -18,7 +20,7 @@ public class StudentDTOoutputSimple {
 
     String branch;
 
-    public StudentDTOoutputSimple(Student student){
+    public StudentDTOoutput(Student student){
         this.id_persona = student.getPersona().getId();
         this.id_student = student.getId_student();
         this.num_hours_week = student.getNum_hours_week();

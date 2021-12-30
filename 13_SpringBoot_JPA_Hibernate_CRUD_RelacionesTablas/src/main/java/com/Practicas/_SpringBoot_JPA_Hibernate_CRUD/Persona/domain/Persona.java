@@ -1,5 +1,7 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain;
 
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.StringPrefixedSequenceIdGenerator;
 import com.sun.istack.NotNull;
 import lombok.Getter;
@@ -96,4 +98,13 @@ public class Persona {
 
         return personaDTOoutput;
     }*/
+
+    //Prueba:
+    @OneToOne//(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "ID_Profesor")
+    Profesor profesor;
+
+    @OneToOne//(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "ID_Student")
+    Student student;
 }
