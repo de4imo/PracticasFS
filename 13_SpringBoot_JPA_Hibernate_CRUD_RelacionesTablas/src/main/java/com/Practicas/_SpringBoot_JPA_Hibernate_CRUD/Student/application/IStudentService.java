@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IStudentService implements StudentServiceInterface{
@@ -42,13 +43,11 @@ public class IStudentService implements StudentServiceInterface{
     public StudentDTOoutput getStudentById(String id, String type) throws Exception {
         Student student = studentRepository.findById(id).orElseThrow(() -> new NotFoundException("No existe estudiante con id:" + id));
 
-        if(type.equalsIgnoreCase("simple")){
-            return new StudentDTOoutput(student);
-        }else if (type.equalsIgnoreCase("full")){
+        if (type.equalsIgnoreCase("full")){
             return new StudentDTOoutputFull(student);
         }
 
-        return null;
+        return new StudentDTOoutput(student);
     }
 
     @Override
@@ -115,6 +114,51 @@ public class IStudentService implements StudentServiceInterface{
         return new StudentDTOoutput(student);
     }
 
+    @Override
+    public StudentDTOoutput addAsignaturasToStudent(String id_estud, List<String> ids_Asig) throws Exception {
+        if(studentRepository.findById(id_estud).isEmpty()){ throw new NotFoundException("Estudiante con id: " + id_estud +" no existe.");}
+
+        Student student = studentRepository.findById(id_estud).get();
+
+
+        for (String id_Asignatura: ids_Asig) {
+            Optional<Estudiante_Asignatura> estudiante_asignatura = estudianteAsignaturaRepository.findById(id_Asignatura);
+
+            if(estudiante_asignatura.isEmpty()){ throw new NotFoundException("No existe asignatura");}
+            else{
+                student.getAsignaturas().add(estudiante_asignatura.get());
+                //  OJO Si no se hace esto, no funciona.....
+                estudiante_asignatura.get().getStudents().add(student);
+            }
+        }
+
+        studentRepository.saveAndFlush(student);
+
+        return new StudentDTOoutput(student);
+    }
+
+    @Override
+    public StudentDTOoutput deleteAsignaturasFromStudent(String id_estud, List<String> ids_Asig) throws Exception {
+        if(studentRepository.findById(id_estud).isEmpty()){ throw new NotFoundException("Estudiante con id: " + id_estud +" no existe.");}
+
+        Student student = studentRepository.findById(id_estud).get();
+
+        for (String id_Asignatura: ids_Asig) {
+            Optional<Estudiante_Asignatura> estudiante_asignatura = estudianteAsignaturaRepository.findById(id_Asignatura);
+
+            if(estudiante_asignatura.isEmpty()){ throw new NotFoundException("No existe asignatura con ID: " + ids_Asig);}
+            else{
+                //UF...
+                student.getAsignaturas().remove(estudiante_asignatura.get());
+
+                estudiante_asignatura.get().getStudents().remove(student);
+            }
+        }
+
+        studentRepository.saveAndFlush(student);
+
+        return new StudentDTOoutput(student);
+    }
 
     //DELETE
     @Override

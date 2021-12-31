@@ -26,6 +26,10 @@ public interface StudentServiceInterface {
 
     StudentDTOoutput addAsignaturaToStudent(String id_estud, String id_student_asig) throws Exception;
 
+    StudentDTOoutput addAsignaturasToStudent(String idStudent, List <String> ids_AsignaturaEstudiante) throws Exception;
+
+    StudentDTOoutput deleteAsignaturasFromStudent(String idStudent, List <String> ids_AsignaturaEstudiante) throws Exception;
+
     //DELETE
     void deleteStudent(String id) throws Exception;
 }

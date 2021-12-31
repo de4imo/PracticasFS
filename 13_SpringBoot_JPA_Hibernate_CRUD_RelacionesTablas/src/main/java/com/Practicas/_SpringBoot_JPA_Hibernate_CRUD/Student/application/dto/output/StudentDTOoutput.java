@@ -39,8 +39,8 @@ public class StudentDTOoutput {
         this.branch = student.getBranch();
 
         for(Estudiante_Asignatura a: student.getAsignaturas()){
-
             this.asignaturas.add(new Estudiante_AsignaturaDTOoutput(a));
+            System.out.println("En StudentDTOoutput - añadiendo: " + a.getName());
         }
     }
 }

@@ -34,7 +34,7 @@ public class Estudiante_Asignatura {
     @JoinColumn(name = "ID_Student")
     private Student student;*/
 
-    @ManyToMany(fetch = FetchType.LAZY)         //PRUEBA
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)         //PRUEBA
     @JoinColumn(name = "ID_Student")
     private List<Student> students;
 

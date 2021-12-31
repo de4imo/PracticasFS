@@ -84,8 +84,8 @@ public class IEstudianteAsignaturaService implements Estudiante_AsignaturaServic
 
         Estudiante_Asignatura estudiante_asignatura = estudianteAsignaturaRepository.findById(id).get();
 
-        if(!estudiante_asignatura.getStudents().isEmpty()){throw new UnprocesableException("No puedes eliminar una asignatura si tiene asignados alumnos.");}
-        
+        if( !estudiante_asignatura.getStudents().isEmpty()){throw new UnprocesableException("No puedes eliminar una asignatura si tiene asignados alumnos.");}
+
         estudianteAsignaturaRepository.delete(estudiante_asignatura);
     }
 

@@ -1,5 +1,6 @@
 package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.infrastructure.controllers;
 
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.input.IDsAsignaturaEstudianteWrapper;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.input.StudentDTOinput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.StudentServiceInterface;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.application.dto.output.StudentDTOoutput;
@@ -68,6 +69,19 @@ public class StudentController {
     @PutMapping("/updatestudent/{idstudent}/addasignatura/{idasignatura}")
     public StudentDTOoutput addAsignaturaToStudent(@PathVariable("idstudent") String idStudent, @PathVariable("idasignatura") String idAsignatura) throws Exception{
         return studentServiceInterface.addAsignaturaToStudent(idStudent, idAsignatura);
+    }
+
+    @PutMapping("/updatestudent/{idstudent}/addasignaturas")
+    public StudentDTOoutput addAsignaturaToStudent(@PathVariable("idstudent") String idStudent, @RequestBody IDsAsignaturaEstudianteWrapper ids) throws Exception{
+
+        return studentServiceInterface.addAsignaturasToStudent(idStudent, ids.getIds_AsignaturaEstudiante());
+        //ids.getIds_AsignaturaEstudiante().forEach(System.out::println);
+    }
+
+    @PutMapping("/updatestudent/{idstudent}/deleteasignaturas")
+    public void deleteAsignaturaToStudent(@PathVariable("idstudent") String idStudent, @RequestBody IDsAsignaturaEstudianteWrapper ids) throws Exception{
+        studentServiceInterface.deleteAsignaturasFromStudent(idStudent, ids.getIds_AsignaturaEstudiante());
+        //ids.getIds_AsignaturaEstudiante().forEach(System.out::println);
     }
 
     //DELETE

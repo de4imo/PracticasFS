@@ -131,7 +131,6 @@ public class IPersonaService implements PersonaServiceInterface {
         if(pers.getStudent() != null){ throw new UnprocesableException("No puedes eliminar [ID_Persona:" + id + ", ID_Estudiante:" + pers.getStudent().getId_student() + ", nombre: " + pers.getName() + "] porque está dado de alta como estudiante.");}
         if(pers.getProfesor() != null){ throw new UnprocesableException("No puedes eliminar [ID_Persona:" + id + ", ID_Profesor:" + pers.getProfesor().getId_profesor() + ", nombre: " + pers.getName() + "] porque está dado de alta como profesor.");}
 
-        System.out.println("La persona no es profesor/edstudiante");
         personaRepositorio.delete(pers);
     }
 }
