@@ -4,7 +4,6 @@ import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.applic
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.application.dto.output.Estudiante_AsignaturaDTOoutput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.domain.Estudiante_Asignatura;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Estudiante_Asignatura.domain.Estudiante_AsignaturaRepository;
-import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.StudentRepository;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.NotFoundException;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.UnprocesableException;
@@ -19,9 +18,6 @@ public class IEstudianteAsignaturaService implements Estudiante_AsignaturaServic
 
     @Autowired
     Estudiante_AsignaturaRepository estudianteAsignaturaRepository;
-
-    @Autowired
-    StudentRepository studentRepository;
 
     @Override
     public Estudiante_AsignaturaDTOoutput getAsignaturaById(String id) throws Exception {
@@ -84,8 +80,13 @@ public class IEstudianteAsignaturaService implements Estudiante_AsignaturaServic
 
     @Override
     public void deleteAsignatura(String id) throws Exception {
-        if(estudianteAsignaturaRepository.findById(id).isEmpty()){throw new NotFoundException("NotFoundException: No existe asignatura con id:" + id);}
-        estudianteAsignaturaRepository.delete(estudianteAsignaturaRepository.findById(id).get());
+        if(estudianteAsignaturaRepository.findById(id).isEmpty()){throw new NotFoundException("No existe asignatura con id:" + id);}
+
+        Estudiante_Asignatura estudiante_asignatura = estudianteAsignaturaRepository.findById(id).get();
+
+        if(!estudiante_asignatura.getStudents().isEmpty()){throw new UnprocesableException("No puedes eliminar una asignatura si tiene asignados alumnos.");}
+        
+        estudianteAsignaturaRepository.delete(estudiante_asignatura);
     }
 
     private void validate(Estudiante_AsignaturaDTOinput estudianteAsignaturaDTOinput, String id) throws Exception{

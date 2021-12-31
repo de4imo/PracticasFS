@@ -105,7 +105,7 @@ public class IStudentService implements StudentServiceInterface{
 
         student.getAsignaturas().add(estudiante_asignatura);
 
-        estudiante_asignatura.setStudent(student);
+        estudiante_asignatura.getStudents().add(student);
 
         estudianteAsignaturaRepository.saveAndFlush(estudiante_asignatura);
 

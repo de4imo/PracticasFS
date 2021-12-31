@@ -30,9 +30,13 @@ public class Estudiante_Asignatura {
     @Column(name = "ID_Estudiante_Asignatura",unique = true)
     private String id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    /*@ManyToOne(fetch = FetchType.LAZY, optional = true)       //  FUNCIONA
     @JoinColumn(name = "ID_Student")
-    private Student student;
+    private Student student;*/
+
+    @ManyToMany(fetch = FetchType.LAZY)         //PRUEBA
+    @JoinColumn(name = "ID_Student")
+    private List<Student> students;
 
     @Column(name = "name")
     private String name;

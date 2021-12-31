@@ -43,8 +43,4 @@ public class StudentDTOoutput {
             this.asignaturas.add(new Estudiante_AsignaturaDTOoutput(a));
         }
     }
-
-
-
-
 }

@@ -12,7 +12,7 @@ public class MyExceptionHandler {
             return notFoundException.getCustomError();
         }
 
-        @ExceptionHandler({ UnprocesableException.class})
+        @ExceptionHandler(value = UnprocesableException.class)
         public CustomError myException422(UnprocesableException unprocesableException) {
             System.out.println("Hola desde MyExceptionHandler (myException422) -  message: " + unprocesableException.getMessage());
             return unprocesableException.getCustomError();

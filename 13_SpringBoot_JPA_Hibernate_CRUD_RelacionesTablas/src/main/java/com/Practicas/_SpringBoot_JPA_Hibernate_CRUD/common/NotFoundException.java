@@ -13,17 +13,9 @@ public class NotFoundException extends RuntimeException {
         super(message);
 
         //CustomError customError = new CustomError(HttpStatus.NOT_FOUND);
-        CustomError customError = new CustomError();
-        customError.setTimestamp(new Date());
-        customError.setHttpCode(404);
-        customError.setMensaje("not found");
+        this.customError = new CustomError();
+        this.customError.setTimestamp(new Date());
+        this.customError.setHttpCode(404);
+        this.customError.setMensaje(message);
     }
-
-    /*CustomError getCustomError(){
-        CustomError customError = new CustomError(HttpStatus.NOT_FOUND);
-        customError.setTimestamp(new Date());
-        customError.setHttpCode(404);
-        customError.setMensaje("not found");
-        return customError;
-    }*/
 }

@@ -48,9 +48,13 @@ public class Student {
     @ManyToOne(fetch = FetchType.LAZY)
     private Profesor profesor;
 
-    //@OneToMany(orphanRemoval = true, mappedBy = "estudiante", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OneToMany(orphanRemoval = true,  mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //FUNCIONA
+    /*@OneToMany(orphanRemoval = true,  mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     //@JoinColumn(name = "estudiante")    Solo se pone Joincolumn en el "dueño" de la relación
+    private List<Estudiante_Asignatura> asignaturas = new ArrayList<>();*/
+
+    //PROBANDO
+    @ManyToMany(mappedBy = "students", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Estudiante_Asignatura> asignaturas = new ArrayList<>();
 
     @NotNull

@@ -40,26 +40,40 @@ public class PersonaController {
         return personaServiceInterface.addPerson(pers);
     }
 
-    //PUT
+
+ //   SI respondo con ResponseEntity no aparecen los Custom Error en postman
+
+    /*//PUT
     @PutMapping("/updateperson/{id}")
     public ResponseEntity<?> updatePersona(@RequestBody PersonaDTOinput pers, @PathVariable("id") String id) throws Exception {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(personaServiceInterface.updatePersona(pers, id));
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error del servidor");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No se ha podido modificar.");
         }
+    }*/
+
+    @PutMapping("/updateperson/{id}")
+    public PersonaDTOoutput updatePersona(@RequestBody PersonaDTOinput pers, @PathVariable("id") String id) throws Exception {
+        return personaServiceInterface.updatePersona(pers, id);
     }
 
     //DELETE
-    @DeleteMapping("/deleteperson/{id}")
+   /* @DeleteMapping("/deleteperson/{id}")
     public ResponseEntity<?> deletePersona(@PathVariable("id") String id) throws Exception {
         try {
             personaServiceInterface.deletePersona(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Persona borrada con exito");
+            return ResponseEntity.status(HttpStatus.OK).body("Persona borrada con exito.");
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error del servidor");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No se ha podido eliminar.");
         }
+    }*/
+
+    @DeleteMapping("/deleteperson/{id}")
+    public CustomError deletePersona(@PathVariable("id") String id) throws Exception {
+        personaServiceInterface.deletePersona(id);
+        return new CustomError();
     }
 }

@@ -77,11 +77,11 @@ public class Persona {
     @Column(name="termination_date")
     private Date termination_date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name  = "personaProf")
     private Profesor profesor;
 
-    @OneToOne(/*mappedBy = "persona",*/fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
     @JoinColumn(name  = "personaStud")
     private Student student;
 }

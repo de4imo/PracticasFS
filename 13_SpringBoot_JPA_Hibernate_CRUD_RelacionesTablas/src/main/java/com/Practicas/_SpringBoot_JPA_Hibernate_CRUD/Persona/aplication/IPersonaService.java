@@ -7,7 +7,10 @@ import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.PersonaReposi
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.input.PersonaDTOinput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.aplication.dto.output.PersonaDTOoutput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.Profesor;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Profesor.domain.ProfesorRepositorio;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.Student;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Student.domain.StudentRepository;
+import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.CustomError;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.NotFoundException;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common.UnprocesableException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,7 +124,14 @@ public class IPersonaService implements PersonaServiceInterface {
     //DELETE
     @Override
     public void deletePersona(String id) throws Exception {
-        if(personaRepositorio.findById(id).isEmpty()){throw new NotFoundException("No existe estudiante con id:" + id);}
-        personaRepositorio.delete(personaRepositorio.findById(id).get());
+        if(personaRepositorio.findById(id).isEmpty()){throw new NotFoundException("No existe persona con id:" + id);}
+        Persona pers = personaRepositorio.findById(id).get();
+
+        //Buscar si la persona es estudiante/profesor
+        if(pers.getStudent() != null){ throw new UnprocesableException("No puedes eliminar [ID_Persona:" + id + ", ID_Estudiante:" + pers.getStudent().getId_student() + ", nombre: " + pers.getName() + "] porque está dado de alta como estudiante.");}
+        if(pers.getProfesor() != null){ throw new UnprocesableException("No puedes eliminar [ID_Persona:" + id + ", ID_Profesor:" + pers.getProfesor().getId_profesor() + ", nombre: " + pers.getName() + "] porque está dado de alta como profesor.");}
+
+        System.out.println("La persona no es profesor/edstudiante");
+        personaRepositorio.delete(pers);
     }
 }
