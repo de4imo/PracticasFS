@@ -5,6 +5,7 @@ import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.domain.PersonaReposi
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure.controllers.dto.input.PersonaDTOinput;
 import com.Practicas._SpringBoot_JPA_Hibernate_CRUD.Persona.infrastructure.controllers.dto.output.PersonaDTOoutput;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class PersonaServiceImpl implements  PersonaServiceInterface{
 
     @Override
     public List<PersonaDTOoutput> getPersonsByName(String name) throws Exception {
+
         List<Persona> personas = personaRepositorio.findByName(name);
 
         return toListDTOoutput(personas);

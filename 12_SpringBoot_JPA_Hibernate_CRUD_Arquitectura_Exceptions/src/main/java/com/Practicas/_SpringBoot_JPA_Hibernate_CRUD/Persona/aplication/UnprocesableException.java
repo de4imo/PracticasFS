@@ -10,6 +10,7 @@ public class UnprocesableException extends RuntimeException {
     CustomError customError;
 
     public UnprocesableException(String message) {
+        super(message);
 
         customError = new CustomError();
         customError.setTimestamp(new Date());

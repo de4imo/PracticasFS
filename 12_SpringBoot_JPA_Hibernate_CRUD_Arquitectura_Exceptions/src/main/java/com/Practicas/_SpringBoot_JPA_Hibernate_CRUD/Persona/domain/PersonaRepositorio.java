@@ -11,8 +11,6 @@ public interface PersonaRepositorio extends JpaRepository<Persona, Long> {
     //void updatePersona (long id, Persona persona);
 }
 
-
-
 /*public class IPersonaRepositorio implements PersonaRepositorio {
 
     @Override
