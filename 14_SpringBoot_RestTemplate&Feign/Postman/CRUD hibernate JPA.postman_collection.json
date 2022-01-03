@@ -1,0 +1,842 @@
+{
+	"info": {
+		"_postman_id": "7d3f1833-5fe9-4c97-864f-bec51ae9404f",
+		"name": "CRUD Relaciones entre tablas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Ejercicio RestTemplate",
+					"item": [
+						{
+							"name": "GET profesor RestTemplate",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profesor/PROF",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profesor",
+										"PROF"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET profesor Feign",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profesor/PROF",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profesor",
+										"PROF"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"pepeluis80\",\r\n    \"password\": \"cont1234\",\r\n    \"name\": \"PepeLuis\",\r\n    \"surname\": \"Rodríguez\",\r\n    \"company_email\": \"pepel@company.com\",\r\n    \"personal_email\": \"pepel@blabla.com\",\r\n    \"city\": \"Madrid\",\r\n    \"active\": \"true\",\r\n    \"created_date\": \"2018-10-23\",\r\n    \"imagen_url\": \"www.google.com/unaimagen.png\",\r\n    \"termination_date\": \"2020-06-16\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addperson",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addperson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getpersonbyid/PERS00000001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getpersonbyid",
+								"PERS00000001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id FULL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getpersonbyid/PERS00000001?outputType=full",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getpersonbyid",
+								"PERS00000001"
+							],
+							"query": [
+								{
+									"key": "outputType",
+									"value": "full"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getpersonbyname/JoseMaria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getpersonbyname",
+								"JoseMaria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by name FULL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getpersonbyname/MiguelA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getpersonbyname",
+								"MiguelA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getallpersons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getallpersons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all FULL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getallpersons?outputType=full",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getallpersons"
+							],
+							"query": [
+								{
+									"key": "outputType",
+									"value": "full"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT (update)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"juan123\",\r\n    \"password\": \"pass123\",\r\n    \"name\": \"Juan\",\r\n    \"company_email\": \"pepe@company.com\",\r\n    \"personal_email\": \"blblbl@bl.com\",\r\n    \"city\": \"madrid\",\r\n    \"active\": \"true\",\r\n    \"created_date\": \"2020-09-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updateperson/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateperson",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/deleteperson/PERS00000001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteperson",
+								"PERS00000001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estudiante",
+			"item": [
+				{
+					"name": "POST example1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personaDTOinput\": \r\n    {\r\n        \"usuario\": \"josema90\",\r\n        \"password\": \"cont1234\",\r\n        \"name\": \"JoseMaria\",\r\n        \"surname\": \"Rodríguez\",\r\n        \"company_email\": \"josema@company.com\",\r\n        \"personal_email\": \"josema@blabla.com\",\r\n        \"city\": \"Madrid\",\r\n        \"active\": \"false\",\r\n        \"created_date\": \"2018-10-23\",\r\n        \"imagen_url\": \"www.google.com/unaimagen.png\",\r\n        \"termination_date\": \"2020-06-16\"\r\n    },\r\n\r\n    \"num_hours_week\": 25,\r\n\r\n    \"comments\": \"No puede trabajar por las tardes.\",\r\n\r\n    \"branch\": \"FullStack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addstudent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addstudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST example2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personaDTOinput\": \r\n    {\r\n        \"usuario\": \"raul85\",\r\n        \"password\": \"cont1234\",\r\n        \"name\": \"RaulAA\",\r\n        \"surname\": \"Rodríguez\",\r\n        \"company_email\": \"josema@company.com\",\r\n        \"personal_email\": \"josema@blabla.com\",\r\n        \"city\": \"Madrid\",\r\n        \"active\": \"false\",\r\n        \"created_date\": \"2018-10-23\",\r\n        \"imagen_url\": \"www.google.com/unaimagen.png\",\r\n        \"termination_date\": \"2020-06-16\"\r\n    },\r\n\r\n    \"num_hours_week\": 25,\r\n\r\n    \"comments\": \"No puede trabajar por las tardes.\",\r\n\r\n    \"branch\": \"Front\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addstudent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addstudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id FULL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getstudentbyid/STUD00000001?outputType=full",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getstudentbyid",
+								"STUD00000001"
+							],
+							"query": [
+								{
+									"key": "outputType",
+									"value": "full"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id SIMPLE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getstudentbyid/STUD00000001?outputType=simple",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getstudentbyid",
+								"STUD00000001"
+							],
+							"query": [
+								{
+									"key": "outputType",
+									"value": "simple"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getstudentbyname/JoseMaria     NO DISPONIBLE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getstudentbyname",
+								"JoseMaria     NO DISPONIBLE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getallstudents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getallstudents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT (update)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personaDTOinput\": \r\n    {\r\n        \"usuario\": \"Carlos90\",\r\n        \"password\": \"cont1234\",\r\n        \"name\": \"CarlosAA\",\r\n        \"surname\": \"Rodríguez\",\r\n        \"company_email\": \"carlospp@company.com\",\r\n        \"personal_email\": \"carlospp@blabla.com\",\r\n        \"city\": \"Madrid\",\r\n        \"active\": \"false\",\r\n        \"created_date\": \"2018-10-23\",\r\n        \"imagen_url\": \"www.google.com/otraimagen.png\",\r\n        \"termination_date\": \"2020-06-16\"\r\n    },\r\n\r\n    \"num_hours_week\": 40,\r\n\r\n    \"comments\": \"No puede trabajar por las tardes.\",\r\n\r\n    \"branch\": \"FullStack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updatestudent/ id aqui",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updatestudent",
+								" id aqui"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT ADD Asignatura",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personaDTOinput\": \r\n    {\r\n        \"usuario\": \"luis90\",\r\n        \"password\": \"cont1234\",\r\n        \"name\": \"LuisAA\",\r\n        \"surname\": \"Rodríguez\",\r\n        \"company_email\": \"luisaa@company.com\",\r\n        \"personal_email\": \"luisaa@blabla.com\",\r\n        \"city\": \"Madrid\",\r\n        \"active\": \"false\",\r\n        \"created_date\": \"2018-10-23\",\r\n        \"imagen_url\": \"www.google.com/otraimagen.png\",\r\n        \"termination_date\": \"2020-06-16\"\r\n    },\r\n\r\n    \"num_hours_week\": 40,\r\n\r\n    \"comments\": \"No puede trabajar por las tardes.\",\r\n\r\n    \"branch\": \"FullStack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updatestudent/STUD00000001/addasignatura/ESTUD_ASIG00000001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updatestudent",
+								"STUD00000001",
+								"addasignatura",
+								"ESTUD_ASIG00000001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT ADD Asignatura ListIDs",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ids_AsignaturaEstudiante\":[\"ESTUD_ASIG00000001\",\"ESTUD_ASIG00000002\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updatestudent/STUD00000001/addasignaturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updatestudent",
+								"STUD00000001",
+								"addasignaturas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT DEL Asignatura ListIDs",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ids_AsignaturaEstudiante\":[\"ESTUD_ASIG00000001\",\"ESTUD_ASIG00000002\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updatestudent/STUD00000002/deleteasignaturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updatestudent",
+								"STUD00000002",
+								"deleteasignaturas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/deletestudent/STUD00000001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deletestudent",
+								"STUD00000001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profesor",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personaDTOinput\": \r\n    {\r\n        \"usuario\": \"Juanlo\",\r\n        \"password\": \"cont1234\",\r\n        \"name\": \"JuanLo\",\r\n        \"surname\": \"Sánchez\",\r\n        \"company_email\": \"juanlo@company.com\",\r\n        \"personal_email\": \"juanlo@blabla.com\",\r\n        \"city\": \"Madrid\",\r\n        \"active\": \"false\",\r\n        \"created_date\": \"2016-10-23\",\r\n        \"imagen_url\": \"www.google.com/unaimagen.png\",\r\n        \"termination_date\": \"2021-06-16\"\r\n    },\r\n\r\n    \"comments\": \"Solo trabaja por las mañanas\",\r\n\r\n    \"branch\": \"HTML\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addprofesor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addprofesor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getprofesorbyid/4d2e36a6-8b5c-4799-888f-ffa5cd4229ff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getprofesorbyid",
+								"4d2e36a6-8b5c-4799-888f-ffa5cd4229ff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getprofesorbyname/JoseMaria      NO DISPONIBLE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getprofesorbyname",
+								"JoseMaria      NO DISPONIBLE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getallprofesors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getallprofesors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT (update)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updateprofesor/id/                     id aqui",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateprofesor",
+								"id",
+								"                     id aqui"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/deleteprofesor/ id aqui",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteprofesor",
+								" id aqui"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estudiante_Asignatura",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"HTML\",\r\n    \"comments\": \"dura 200 horas\",\r\n    \"initial_date\": \"2020-01-13\",\r\n    \"finish_date\": \"2020-05-13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addasignatura",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addasignatura"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getasignaturabyid/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getasignaturabyid",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getasignaturabyname/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getasignaturabyname",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/getallasignaturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getallasignaturas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT (update)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"juan123\",\r\n    \"password\": \"pass123\",\r\n    \"name\": \"Juan\",\r\n    \"company_email\": \"pepe@company.com\",\r\n    \"personal_email\": \"blblbl@bl.com\",\r\n    \"city\": \"madrid\",\r\n    \"active\": \"true\",\r\n    \"created_date\": \"2020-09-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/updateasignatura/id/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateasignatura",
+								"id",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/deleteasignatura/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteasignatura",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
