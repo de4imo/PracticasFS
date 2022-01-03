@@ -24,9 +24,7 @@ public class ProfControllerRestTemplate {
         ResponseEntity<ProfesorDTOoutput> responseEntity= new RestTemplate().getForEntity("http://localhost:8080/getprofesorbyid/" + id, ProfesorDTOoutput.class);
 
         //return ResponseEntity.ok(responseEntity.getBody());
-        if(responseEntity.getStatusCode() == HttpStatus.OK){
-            return responseEntity;
-        }
+        if(responseEntity.getStatusCode() == HttpStatus.OK){ return responseEntity; }
 
         throw new RuntimeException("error del servidor");
     }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 //Name para indicar el servicio externo que vamos a usar, ahora no lo estamos usando realmente
-@FeignClient(name = "feignTest", url = "http://localhost:8080")
+@FeignClient(name = "feignTest", url = "http://localhost:8081")
 public interface ProfesorFeignI {
 
 
