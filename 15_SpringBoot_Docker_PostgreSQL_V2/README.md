@@ -21,3 +21,6 @@ Pasos(hay que tener instalado postgre en docker):
 	docker run --network mynetwork --name programa_spring_15 -p8080:8080 -d spring
 	Ó
 	docker run --network mynetwork --name programa_spring_15 -p8080:8080 spring
+	
+	
+	![image](https://user-images.githubusercontent.com/89456856/148206513-771c01a0-898b-4fa4-9b91-9e9db4572bf6.png)
