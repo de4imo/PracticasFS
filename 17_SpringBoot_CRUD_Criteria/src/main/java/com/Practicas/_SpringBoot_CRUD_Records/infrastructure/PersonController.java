@@ -30,9 +30,10 @@ public class PersonController {
             @RequestParam(value="name", required=false) String name,
             @RequestParam(value="surname", required=false) String surname,
             @RequestParam(value="created_date", required=false) @DateTimeFormat(pattern="yyyy-MM-dd")/*@DateTimeFormat(pattern="dd-MM-yyyy")*/ Date createdDate,
-            @RequestParam(value="dateCondition", required=false) String dateCondition) throws Exception
+            @RequestParam(value="dateCondition", required=false) String dateCondition,
+            @RequestParam(value="page", required = true) int page) throws Exception
     {
-        return personService.getByCriteria(user, name, surname, createdDate, dateCondition);
+        return personService.getByCriteria(user, name, surname, createdDate, dateCondition, page);
     }
 
     @GetMapping(value ="/getbyid/{id}")

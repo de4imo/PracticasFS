@@ -15,8 +15,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class Person {
+    @TableGenerator(name = "PERSONAS", initialValue = 30)
     @Id
-    @GeneratedValue
+    @GeneratedValue//( parameters = {)
     @Column(name = "id",unique = true)
     private long id;
 

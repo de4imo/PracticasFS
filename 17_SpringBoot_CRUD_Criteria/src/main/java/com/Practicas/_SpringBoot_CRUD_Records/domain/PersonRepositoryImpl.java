@@ -1,7 +1,8 @@
 package com.Practicas._SpringBoot_CRUD_Records.domain;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import org.springframework.data.domain.Pageable;
+
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -21,11 +22,15 @@ public class PersonRepositoryImpl {
     public static final String EQUAL="equal";
    //
 
-    public List<Person> getData(HashMap<String, Object> conditions)
+    public List<Person> getData(HashMap<String, Object> conditions, Pageable pageable)
     {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+
+
+
         CriteriaQuery<Person> query= cb.createQuery(Person.class);
         Root<Person> root = query.from(Person.class);
+
 
         List<Predicate> predicates = new ArrayList<>();
         conditions.forEach((field,value) ->
@@ -59,7 +64,25 @@ public class PersonRepositoryImpl {
             }
 
         });
+
+
+//        Antes de hacer la segunda parte del ejercicio (sin "paginacion"):
+
+//        query.select(root).where(predicates.toArray(new Predicate[predicates.size()]));
+//        return entityManager.createQuery(query).getResultList();*/
+
+
+        //Ahora con "paginación":
+
         query.select(root).where(predicates.toArray(new Predicate[predicates.size()]));
-        return entityManager.createQuery(query).getResultList();
+
+        TypedQuery results = entityManager.createQuery(query);
+
+        //Pageable aquí es prescindible, se podrían enviar dos números y ya
+        results.setFirstResult(pageable.getPageNumber()*10);
+        results.setMaxResults(pageable.getPageSize());
+
+        return results.getResultList();
     }
+
 }

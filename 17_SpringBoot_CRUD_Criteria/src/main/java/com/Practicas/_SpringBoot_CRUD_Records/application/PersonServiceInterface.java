@@ -3,6 +3,7 @@ package com.Practicas._SpringBoot_CRUD_Records.application;
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOinput;
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOoutput;
 import com.Practicas._SpringBoot_CRUD_Records.domain.Person;
+import org.springframework.data.domain.Page;
 
 import java.util.Date;
 import java.util.List;
@@ -21,5 +22,6 @@ public interface PersonServiceInterface {
 
     List<PersonaDTOoutput> deleteById(long id)throws Exception;
 
-    List<PersonaDTOoutput> getByCriteria(String user, String name, String surname, Date createdDate, String dateCondition)throws Exception;
+    List<PersonaDTOoutput> getByCriteria(String user, String name, String surname, Date createdDate, String dateCondition, int page)throws Exception;
+
 }

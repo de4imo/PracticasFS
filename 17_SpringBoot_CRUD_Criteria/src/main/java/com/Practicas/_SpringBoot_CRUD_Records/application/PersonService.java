@@ -1,11 +1,12 @@
 package com.Practicas._SpringBoot_CRUD_Records.application;
 
-import ch.qos.logback.classic.spi.IThrowableProxy;
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOinput;
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOoutput;
 import com.Practicas._SpringBoot_CRUD_Records.domain.Person;
 import com.Practicas._SpringBoot_CRUD_Records.domain.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -102,9 +103,8 @@ public class PersonService implements PersonServiceInterface{
     public static final String LESS_THAN="less";
     public static final String EQUAL="equal";
 
-
     @Override
-    public List<PersonaDTOoutput> getByCriteria(String user, String name, String surname, Date createdDate, String dateCondition) throws Exception{
+    public List<PersonaDTOoutput> getByCriteria(String user, String name, String surname, Date createdDate, String dateCondition, int pageNumber) throws Exception{
         HashMap<String, Object> data = new HashMap<>();
 
         if (user!=null)
@@ -122,6 +122,11 @@ public class PersonService implements PersonServiceInterface{
         if (!dateCondition.equals(GREATER_THAN) && !dateCondition.equals(LESS_THAN) && !dateCondition.equals(EQUAL))
             dateCondition=GREATER_THAN;
 
-        return toListDTOoutput(personaRepository.getData(data));
+
+        //Pageable aquí es prescindible, se podrían enviar dos números y ya
+        Pageable pageable = PageRequest.of(pageNumber, 10);
+
+        return toListDTOoutput(personaRepository.getData(data, pageable));
     }
+
 }
