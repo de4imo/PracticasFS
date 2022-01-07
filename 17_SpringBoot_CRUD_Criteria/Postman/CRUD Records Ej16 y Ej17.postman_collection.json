@@ -1,10 +1,24 @@
 {
 	"info": {
 		"_postman_id": "4d200df9-3245-47f7-8fba-28131dd051c6",
-		"name": "CRUD Records Ej16",
+		"name": "CRUD Records Ej16 y Ej17",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Ej17",
+			"item": [
+				{
+					"name": "Get by Criteria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "POST user",
 			"request": {
