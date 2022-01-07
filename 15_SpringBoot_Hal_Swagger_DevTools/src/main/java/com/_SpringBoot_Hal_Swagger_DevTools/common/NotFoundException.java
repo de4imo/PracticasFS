@@ -1,4 +1,4 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common;
+package com._SpringBoot_Hal_Swagger_DevTools.common;
 
 import lombok.Getter;
 
@@ -12,7 +12,6 @@ public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {
         super(message);
 
-        //CustomError customError = new CustomError(HttpStatus.NOT_FOUND);
         this.customError = new CustomError();
         this.customError.setTimestamp(new Date());
         this.customError.setHttpCode(404);

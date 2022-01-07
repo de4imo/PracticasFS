@@ -51,4 +51,9 @@ public class PersonaController {
         personaServiceInterface.deletePersona(id);
         return new CustomError();
     }
+
+    @GetMapping("/prueba/hola")
+    public String getHola(){
+        return "Hola";
+    }
 }

@@ -1,4 +1,4 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common;
+package com._SpringBoot_Hal_Swagger_DevTools.common;
 
 import lombok.Getter;
 

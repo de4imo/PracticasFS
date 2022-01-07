@@ -1,4 +1,4 @@
-package com.Practicas._SpringBoot_JPA_Hibernate_CRUD.common;
+package com._SpringBoot_Hal_Swagger_DevTools.common;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,17 +14,4 @@ public class CustomError /*extends ResponseEntity*/ {
     private int HttpCode;
 
     private String mensaje;
-
-
-    /*public void setNotFoundException(){
-        timestamp = new Date();
-        HttpCode = 404;
-        mensaje = "esto es not found exception";
-    }
-
-    public void setUnprocesableException(){
-        timestamp = new Date();
-        HttpCode = 422;
-        mensaje = "esto es unpprocesable exception";
-    }*/
 }
