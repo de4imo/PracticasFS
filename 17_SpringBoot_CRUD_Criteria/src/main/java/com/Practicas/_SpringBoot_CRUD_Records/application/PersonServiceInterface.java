@@ -2,8 +2,6 @@ package com.Practicas._SpringBoot_CRUD_Records.application;
 
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOinput;
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOoutput;
-import com.Practicas._SpringBoot_CRUD_Records.domain.Person;
-import org.springframework.data.domain.Page;
 
 import java.util.Date;
 import java.util.List;

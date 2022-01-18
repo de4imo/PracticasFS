@@ -1,5 +1,6 @@
 package com.Practicas._SpringBoot_CRUD_Records.domain;
 
+import com.Practicas._SpringBoot_CRUD_Records.domain.Person;
 import org.springframework.data.domain.Pageable;
 
 import javax.persistence.*;
@@ -16,21 +17,16 @@ public class PersonRepositoryImpl {
     @PersistenceContext
     private EntityManager entityManager;
 
-    //dónde poner esto??????
     public static final String GREATER_THAN="greater";
     public static final String LESS_THAN="less";
     public static final String EQUAL="equal";
-   //
 
     public List<Person> getData(HashMap<String, Object> conditions, Pageable pageable)
     {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 
-
-
         CriteriaQuery<Person> query= cb.createQuery(Person.class);
         Root<Person> root = query.from(Person.class);
-
 
         List<Predicate> predicates = new ArrayList<>();
         conditions.forEach((field,value) ->
@@ -66,14 +62,12 @@ public class PersonRepositoryImpl {
         });
 
 
-//        Antes de hacer la segunda parte del ejercicio (sin "paginacion"):
+    //Antes de hacer la segunda parte del ejercicio (sin "paginacion"):
+//       query.select(root).where(predicates.toArray(new Predicate[predicates.size()]));
+//       return entityManager.createQuery(query).getResultList();*/
 
-//        query.select(root).where(predicates.toArray(new Predicate[predicates.size()]));
-//        return entityManager.createQuery(query).getResultList();*/
 
-
-        //Ahora con "paginación":
-
+    //Ahora con "paginación":
         query.select(root).where(predicates.toArray(new Predicate[predicates.size()]));
 
         TypedQuery results = entityManager.createQuery(query);

@@ -64,6 +64,7 @@ public class Person {
     private String imagen_url;
 
     @Column
+    @Temporal(TemporalType.DATE)
     private Date termination_date;
 
     //PersonaDTO other = (PersonaDTO) obj;

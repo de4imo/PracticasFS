@@ -4,16 +4,14 @@ package com.Practicas._SpringBoot_CRUD_Records.infrastructure;
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOinput;
 import com.Practicas._SpringBoot_CRUD_Records.application.DTOs.PersonaDTOoutput;
 import com.Practicas._SpringBoot_CRUD_Records.application.PersonService;
-import com.Practicas._SpringBoot_CRUD_Records.domain.Person;
-import com.Practicas._SpringBoot_CRUD_Records.domain.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
+@CrossOrigin(origins = "*") //AÑADIDO PARA PODER HACER PETICIONES DESDE JAVASCRYPT Y NO SOLO DESDE LOCALHOST
 @RestController
 public class PersonController {
     @Autowired
@@ -53,6 +51,7 @@ public class PersonController {
 
     @PostMapping(value = "/addperson")
     public PersonaDTOoutput addPersona(@RequestBody PersonaDTOinput pers) throws Exception {
+        System.out.println("Recibido en controlador /addpersos - nombre: " + pers.name());
         return personService.addPerson(pers);
     }
 
