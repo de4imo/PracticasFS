@@ -7,8 +7,11 @@
 <body>
     <h1>Ejemplo práctico SpringBoot</h1>
 
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file"/> <br><br>
+    <form th:action="@{/uploading(path=${path})}" method="POST" enctype="multipart/form-data">
+        <label for="inputFile">Elegir archivo: </label>
+        <input type="file" id="inputFile" name="file"/> <br><br>
+        <label for="inputMetadata">Metadata: </label>
+        <input type="text" id="inputMetadata" name="metadata"/> <br><br>
         <input type="submit" value="Cargar"/>
     </form>
 </body>
