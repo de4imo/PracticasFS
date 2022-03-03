@@ -1,0 +1,14 @@
+exchange, [USD, 10.333]at: 2022-03-03T09:26:58.685142100
+exchange, [USD, 10.333]at: 2022-03-03T09:27:44.790432900
+method 'exchange', args: [USD, 10.333], at: 2022-03-03T10:09:40.669626200
+method 'exchange', on Class 'org.springframework.aop.aspectj.MethodInvocationProceedingJoinPointargs: [USD, 10.333], at: 2022-03-03T10:13:06.837159900
+method 'exchange', on Class 'org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$MethodSignatureImplargs: [USD, 10.333], at: 2022-03-03T10:14:07.622405600
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResourceargs: [USD, 10.333], at: 2022-03-03T10:15:51.412447
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [USD, 10.333], at: 2022-03-03T10:23:22.549811600
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [USD, 1.0], at: 2022-03-03T10:23:25.107186100
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [MXN, 22.95], at: 2022-03-03T10:23:51.026649100
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [MXN, 1.0], at: 2022-03-03T10:23:57.530305800
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [MXN, 1.0], at: 2022-03-03T10:25:01.724314100
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [MXN, 1.0], at: 2022-03-03T10:25:49.245896
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [MXN, 1.0], at: 2022-03-03T10:25:50.129719500
+method 'exchange', on Class 'com.creatingCustomAnnotations._SpringBoot_Annotations.resources.CurrencyResource, args: [MXN, 1.0], at: 2022-03-03T10:25:52.681201500
